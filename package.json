@@ -18,6 +18,7 @@
   "homepage": "https://github.com/dartmouth-cs52-23s/project-api-skimgpt#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
+    "gpt-3-encoder": "^1.1.4",
     "openai": "^3.2.1"
   }
 }

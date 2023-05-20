@@ -1,0 +1,23 @@
+{
+  "name": "project-api-skimgpt",
+  "version": "1.0.0",
+  "description": "api for skimpgt",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gpt.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dartmouth-cs52-23s/project-api-skimgpt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dartmouth-cs52-23s/project-api-skimgpt/issues"
+  },
+  "homepage": "https://github.com/dartmouth-cs52-23s/project-api-skimgpt#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1"
+  }
+}

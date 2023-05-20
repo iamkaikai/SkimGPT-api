@@ -1,17 +1,55 @@
 require('dotenv').config();
 const { Configuration, OpenAIApi } = require("openai");
 const fs = require('fs');
+const axios = require('axios');
+const jsdom = require('jsdom');
 const {encode, decode} = require('gpt-3-encoder')   //tokenize the string for length counting
 let file = "./input/content.txt"
-let data;
+let data = '';
+const URL = 'https://www.foxnews.com/politics/nebraska-senator-flips-out-debating-ban-sex-change-surgeries-minors-screams-we-need-trans-people';
+
 
 //read the input file
-try {
-    data = fs.readFileSync(file, 'utf8');
-} catch (err) {
-    console.error('An error occurred:', err);
+// try {
+//     data = fs.readFileSync(file, 'utf8');
+// } catch (err) {
+//     console.error('An error occurred:', err);
+// }
+
+//extract html to text
+async function fetchURL(){
+    try{
+        const response = await axios.get(URL);
+        if (response.data) {
+            const dom = new jsdom.JSDOM(response.data);
+            const document = dom.window.document;
+            const paragraphs = document.querySelectorAll('p');
+            const h1 = document.querySelectorAll('h1');
+            const h2 = document.querySelectorAll('h2');
+            
+            h1.forEach(h => {
+                if (h.textContent) data += "\n\n" + String(h.textContent);
+            });
+            h2.forEach(h => {
+                if (h.textContent) data += "\n\n" + String(h.textContent);
+            });
+            paragraphs.forEach(p => {
+                if (p.textContent) data += "\n\n" + String(p.textContent);
+            });
+            console.log('------------------------');
+            console.log(data)
+            console.log('------------------------');
+        } else {
+            console.log("No data returned from the URL");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+    return data;
 }
 
+
+//create OpenAI api
 const configuration = new Configuration({
     organization: "org-fVyeMZZJOoOtXtwEnS5za3pl",
     apiKey: process.env.OPENAI_API_KEY,
@@ -23,7 +61,8 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-const response = async () => {
+// make request to OpenAI api
+const summarize = async () => {
     const result = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
@@ -44,16 +83,19 @@ const response = async () => {
     });
     console.log("--------------------")
     console.log(result.data['choices'][0]['message']['content']);
-    // console.log(result);     // full detail of the result
     console.log("--------------------")
 };
 
-const token_len = encode(data).length
-if ( token_len <= 4096){
-    console.log("Size fit!! length = " + token_len);
-    console.log("loading...")
-    response().catch(console.error);
-}else{
-    console.log("Size too long! length = " + token_len);
+async function main(){
+    let content = await fetchURL();
+    const token_len = encode(content).length
+    if ( token_len <= 4096){
+        console.log("Size fit!! length = " + token_len + "/4096");
+        console.log("Summarizing...")
+        summarize().catch(console.error);
+    }else{
+        console.log("Size too long! length = " + token_len + "/4096");
+    }
 }
 
+main();

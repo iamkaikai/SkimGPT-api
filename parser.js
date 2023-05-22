@@ -38,12 +38,9 @@ async function fetchAndParseURL(URL) {
             });
 
             result_text = result_text_lines.join("\n");
-
             save(result_text, './input/parser.txt');
             save(result_html, './input/parser.html');
-
             sections = result_text.split('----');
-            // console.log(sections);
         }
 
     } catch (error) {

@@ -67,42 +67,15 @@ const summarize = async (paragraphs, num_part) => {
     return result.data['choices'][0]['message']['content'];
 };
 
-//execute the program, 
-//if the input in less than 4096 token just throw the entire content as input
-//if its longer than 4096, break it into pieces and fetch them to GPT
 async function main(){
     let sections = await fetchAndParseURL(URL);
     const token_len = encode(String(sections)).length
 
-    // if ( token_len <= 4096){
-    //     console.log("Size fit!! length = " + token_len + "/4096");
-    //     console.log("Summarizing...")
-    //     paragraphs.push(content)
-    //     try {
-    //         let num_part = 1
-    //         let result = await summarize(paragraphs, num_part);
-    //         console.log(result);
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }else{
-        console.log("Size too long! length = " + token_len + "/4096");
-        console.log("Breaking content into small parts...")
-        // let points = []
-        // let num_part = Math.floor(token_len/4096)+1;    
-        // let char_len = Math.round(content.length/num_part);
-
-        // for(let i =0; i < num_part+1; i++){
-        //     points.push(i*char_len);
-        // }
-        // for(let i = 0; i < num_part; i++){
-        //     paragraphs.push(content.substring(points[i], points[i+1]));
-        // }
-
-        //feed the paragraphs to the summarizer
-        let result = await summarize(sections, sections.length);
-        console.log(result);
-    // }
+    console.log("Size too long! length = " + token_len + "/4096");
+    console.log("Breaking content into small parts...")
+    
+    let result = await summarize(sections, sections.length);
+    console.log(result);
 }
 
 main();

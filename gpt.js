@@ -7,7 +7,8 @@ const jsdom = require('jsdom');
 const {encode, decode} = require('gpt-3-encoder')   //tokenize the string for length counting
 let file = "./input/content.txt"
 const path = require('path');
-const URL = 'https://en.wikipedia.org/wiki/MP3';
+const URL = 'https://www.cs.dartmouth.edu/~albertoq/cs10/notes21.html';
+// const URL = 'https://www.cnn.com/2023/05/19/politics/biden-japan-visit-china-reaction/index.html';
 let paragraphs = [];
 
 //config OpenAI api
@@ -47,7 +48,7 @@ const summarize = async (paragraphs, num_part) => {
         console.log("part " + i + "\n" + result_temp + "\n")
     }
     console.log('---------------')
-    console.log(encode(String(history)).length)
+    console.log("Final length: " + encode(String(history)).length)
     console.log('---------------')
     
     const result = await openai.createChatCompletion({
@@ -71,37 +72,37 @@ const summarize = async (paragraphs, num_part) => {
 //if its longer than 4096, break it into pieces and fetch them to GPT
 async function main(){
     let content = await fetchAndParseURL(URL);
-    const token_len = encode(content).length
+    // const token_len = encode(content).length
 
-    if ( token_len <= 4096){
-        console.log("Size fit!! length = " + token_len + "/4096");
-        console.log("Summarizing...")
-        paragraphs.push(content)
-        try {
-            let num_part = 1
-            let result = await summarize(paragraphs, num_part);
-            console.log(result);
-        } catch (error) {
-            console.error(error);
-        }
-    }else{
-        console.log("Size too long! length = " + token_len + "/4096");
-        console.log("Breaking content into small parts...")
-        let points = []
-        let num_part = Math.floor(token_len/4096)+1;    
-        let char_len = Math.round(content.length/num_part);
+    // if ( token_len <= 4096){
+    //     console.log("Size fit!! length = " + token_len + "/4096");
+    //     console.log("Summarizing...")
+    //     paragraphs.push(content)
+    //     try {
+    //         let num_part = 1
+    //         let result = await summarize(paragraphs, num_part);
+    //         console.log(result);
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }else{
+    //     console.log("Size too long! length = " + token_len + "/4096");
+    //     console.log("Breaking content into small parts...")
+    //     let points = []
+    //     let num_part = Math.floor(token_len/4096)+1;    
+    //     let char_len = Math.round(content.length/num_part);
 
-        for(let i =0; i < num_part+1; i++){
-            points.push(i*char_len);
-        }
-        for(let i = 0; i < num_part; i++){
-            paragraphs.push(content.substring(points[i], points[i+1]));
-        }
+    //     for(let i =0; i < num_part+1; i++){
+    //         points.push(i*char_len);
+    //     }
+    //     for(let i = 0; i < num_part; i++){
+    //         paragraphs.push(content.substring(points[i], points[i+1]));
+    //     }
 
-        //feed the paragraphs to the summarizer
-        let result = await summarize(paragraphs, num_part);
-        console.log(result);
-    }
+    //     //feed the paragraphs to the summarizer
+    //     let result = await summarize(paragraphs, num_part);
+    //     console.log(result);
+    // }
 }
 
 main();

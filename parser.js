@@ -20,6 +20,7 @@ async function fetchAndParseURL(URL) {
 
             //if the html has "h" tag, go to result_text and append the tag
             let line_counter = 0;
+            let target_line = 0;
             let result_html_lines = (result_html.split('\n'));
             let result_text_lines = (result_text.split('\n'));
 
@@ -27,27 +28,29 @@ async function fetchAndParseURL(URL) {
                 let regex = /(<h1|<h2|<h3|<h4)([^>]*)>(.*?)<\/h[1-4]>/;
                 let match = element.match(regex);
                 if (match) {
-                    // console.log(match[3]);  
                     keyword = match[3];
+                    target_line = line_counter;
                     regex_txt = new RegExp('\\b' + keyword + '\\b', 'g');
-                    result_text = result_text.replace(regex_txt, '**' + keyword + '**')
-                    // console.log(t)
+                    result_text_lines[target_line] = result_text_lines[target_line].replace(regex_txt, '\n----\n\n\n' + '<section>' + keyword + '</section>')
                 }                
                 line_counter ++;
-                // console.log(line_counter)
 
             });
 
-            // result_text = result_text_lines.join("\n");
+            result_text = result_text_lines.join("\n");
+
             save(result_text, './input/parser.txt');
             save(result_html, './input/parser.html');
+
+            sections = result_text.split('----');
+            // console.log(sections);
         }
 
     } catch (error) {
         console.log(error);
     }
 
-    return result_textcontent;
+    return sections;
 }
 
 function save(result,out_dir){
@@ -55,6 +58,7 @@ function save(result,out_dir){
         if (err) throw err;
         console.log('The file has been saved!');
     });
+    console.log('\n\n');
 }
 
 module.exports = fetchAndParseURL;

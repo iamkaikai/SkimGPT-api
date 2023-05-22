@@ -1,17 +1,25 @@
 <title>CS 10 | Problem solving</title>
 
-****Web services**** So far we've been dealing with the world as it exists on our individual computers. But a lot of exciting problems arise in the context of having multiple machines work together on something. We'll get a taste of such approaches in the upcoming week, starting today with the basic question of how to obtain and process data from web servers. Our goal is to build a simple query interface for Flickr; we'll cover how to send and process queries, and how to use a graphical user interface (GUI) to provide a somewhat nicer interface than we have seen.
+
+----
+
+
+<section>Web services</section> So far we've been dealing with the world as it exists on our individual computers. But a lot of exciting problems arise in the context of having multiple machines work together on something. We'll get a taste of such approaches in the upcoming week, starting today with the basic question of how to obtain and process data from web servers. Our goal is to build a simple query interface for Flickr; we'll cover how to send and process queries, and how to use a graphical user interface (GUI) to provide a somewhat nicer interface than we have seen.
 
 We'll be using a number of different Java packages to help out. As usual, Oracle provides a detailed reference. Somewhat more useful to get going, they also provide a set of Java tutorials. I've provided links to relevant ones within the menu below. Note that they cover much more than we do, and are just provided for your reference in case you want supplementary reading.
 
-**Outline**
 
- **Graphical user interface** [Java tutorials on Swing]
- **Getting stuff from the web** [Java tutorial on IO]
- ****Web services****
- **Processing XML** [Java tutorials on JAXP, particularly DOM]
- **The finished product**
- **Java notes**
+----
+
+
+<section>Outline</section>
+
+ Graphical user interface [Java tutorials on Swing]
+ Getting stuff from the web [Java tutorial on IO]
+ Web services
+ Processing XML [Java tutorials on JAXP, particularly DOM]
+ The finished product
+ Java notes
 
 
 All the code files for today: FlickrSearchJSON.java; FlickrSearchXML.java; FlickrSearchCore.java; ProcessXML.java; json-simple-1.1.1.jar; WWWGet.java; WWWGetTry.java
@@ -21,7 +29,11 @@ Slides from class (Section 12 - AQL)
 
 Slides from class (Section 2 - TJP)
 
-**Graphical user interface**
+
+----
+
+
+<section>Graphical user interface</section>
 
 Let's start by mocking up a little GUI for the photo browser we have in mind: FlickrSearchCore.java.  GUI construction is tedious, and best done with a GUI development environment that lets us graphically lay out the various components. So we'll just do something simple that illustrates the use of some of the components (buttons, a text field, a combo box); once you've seen these, you can pick up the rest by following the same principles.
 
@@ -65,7 +77,11 @@ The textbox for the search text is simple, and the search button is set up the s
 
 The key thing we have to account for with multiple components is how to lay them out. (That's what's best done graphically.) Java provides a number of different layout managers with different behaviors. We put the buttons in their panel with a "flow layout" that just adds them in rows, left to right, with a new row started when the next component won't fit in the current row. We then put that panel along with the canvas into the main content panel with a "border layout" that allows the user to put one thing at the top (NORTH), one at the bottom (SOUTH), one on the right side (EAST), one on the left side (WEST), and one in the middle (CENTER). The CENTER expands to occupy all space not used by the other four. So the button panel is at the top and the canvas in the center, taking the rest of the space.
 
-**Getting stuff from the web**
+
+----
+
+
+<section>Getting stuff from the web</section>
 
 At its heart, network programming is all about how to properly transfer information between computers. As we discussed briefly when we first encountered type declarations in Java, a computer only ever deals with bits, so how is any particular set of 0s and 1s to be interpreted? What does an incoming bunch of bits imply, and how do I send the appropriate outgoing bunch of bits? That's what network protocols are all about. With the internet, there are multiple layers of how to handle bits, to gain increasing reliability (in case of misread bits, dropped bits or entire messages, etc.). You'll have to take the networking course to get into that; here we're just going to look at a high level, provided by web-based protocols.
 
@@ -106,7 +122,11 @@ The Reader/Stream mechanism for reading data works like we've done previously wi
 As with files, trying to open and read from a URL can raise exceptions. 
 An exception-handling version of our previous buck-passing program: WWWGetTry.java. The handlers for the exceptions from creating the URL and the reader are at the bottom. We then have a try-within-a-try for reading (boy would Yoda be displeased — do or do not, there is no try), because we want to close the stream no matter what. Note that the stream closing itself can throw an exception, which is handled by the same catcher as for opening. Whew.
 
-****Web services****
+
+----
+
+
+<section>Web services</section>
 
 Instead of dealing with web pages, we'll be dealing with web services — when information is delivered via this same machinery. In that case, we actively engage with the server, sending it values of parameters with the input, and getting back results specific to that input. It's like a function call (and indeed some of the mechanisms make it feel even more that way). We'll be using a basic, but powerful and common mechanism, called REST (REpresentational State Transfer) that is built directly on top of the same HTTP approach we've just used for web pages.
 
@@ -117,7 +137,11 @@ ampersands (&); e.g., http://cs.dartmouth.edu/~albertoq/cs10/hello.php?name=albe
 One thing to note is that not all characters are acceptable in a URL. For example, URLs aren't supposed to include spaces. So we have to "URL encode" the parameter values using an encoding of such "special characters". A simple way to do that is with the URLEncoder class:
 URL url = new URL("http://cs.dartmouth.edu/~albertoq/cs10/hello.php?name="
          + URLEncoder.encode("alberto quattrini li","UTF-8"));
-**Processing XML**
+
+----
+
+
+<section>Processing XML</section>
 
 So now we've handled sending parameters to a web service; how do we get a response back that we can interpret? There are a number of approaches to encoding data in a way that a program could interpret it. One standard way is XML (eXtensible Markup Language), which is related to and much like HTML (HyperText Markup Language) in that they are both languages (sets of syntax and grammar rules) describing how to represent something. For HTML, that's hypertext; for XML, it's basically anything.
 
@@ -146,7 +170,11 @@ Let's write a program to pull the URLs from the XML file. We need an ability to 
 
 The code: ProcessXML.java. Save flickr-dart.xml in a folder called "inputs". We start by pulling the XML file into one big String. We read the individual lines, using the same approach we've seen before, and concatenate them together. Along the way, we replace ampersands with pluses, the gross hack I mentioned. Then there's quite a bit of boilerplate to parse the XML string, due to the power and generality of the mechanism. Finally, we piece together the URLs for the photo elements as described. I had to write an extra little piece of code to look up the attribute of a given name and return its value, just by marching down the list of attributes and seeing which one matches.
 
-**The finished product**
+
+----
+
+
+<section>The finished product</section>
 
 FlickrSearch.java puts together all the pieces we've seen, with just a bit more to drive the search.
 
@@ -156,7 +184,11 @@ The query specifies the various parameters to the REST query, as specified in th
 
 We form the image URLs using the technique we already discussed; the "z" at the end of the URLs indicates an image that is max 640 pixels on a side. We then use the standard Java image mechanism to pull in the images and store them in an array. 
 
-**Java notes**
+
+----
+
+
+<section>Java notes</section>
 
 
 inner class

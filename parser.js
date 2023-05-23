@@ -32,21 +32,26 @@ async function fetchAndParseURL(URL) {
                     target_line = line_counter;
                     regex_txt = new RegExp('\\b' + keyword + '\\b', 'g');
                     result_text_lines[target_line] = result_text_lines[target_line].replace(regex_txt, '\n----\n\n\n' + '<section>' + keyword + '</section>')
+                }else{
+                    result_text_lines[target_line] += '\n----\n';
                 }                
                 line_counter ++;
-
             });
 
             result_text = result_text_lines.join("\n");
             save(result_text, './input/parser.txt');
             save(result_html, './input/parser.html');
+
+            //process the bad format
             sections = result_text.split('----');
+            sections.forEach(element => {
+                sections = sections.filter(item => !/^[\n\r\s]*$/.test(item));
+            })
         }
 
     } catch (error) {
         console.log(error);
     }
-
     return sections;
 }
 
@@ -55,7 +60,6 @@ function save(result,out_dir){
         if (err) throw err;
         console.log('The file has been saved!');
     });
-    console.log('\n\n');
 }
 
 module.exports = fetchAndParseURL;

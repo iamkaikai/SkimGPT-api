@@ -1,22 +1,25 @@
 {
     "title": "",
-    "overview": "",
-    "num_paragraphs":2,
-    "total_length":100,
-    "paragraphs":{
-        "section1":{
-            "id": 0,
-            "length": 50,
-            "title": "",
-            "overview":"",
-            "content":""
-        },
-        "section2":{
-            "id": 1,
-            "length": 50,
-            "title": "",
-            "overview":"",
-            "content":""
-        },
+    "num_sections": 10,
+    "HTML": "",
+}
+
+{
+    "section":{
+        "id": 1,
+        "length": 50,
+        "title": "",
+        "overview":"",
+        "content":""
+    }
+}
+
+{
+    "section":{
+        "id": 8,
+        "length": 50,
+        "title": "",
+        "overview":"",
+        "content":""
     }
 }

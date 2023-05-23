@@ -8,8 +8,8 @@ const {encode, decode} = require('gpt-3-encoder')   //tokenize the string for le
 let file = "./input/content.txt"
 const path = require('path');
 // const URL = 'https://github.com/openai/jukebox';
-// const URL = 'https://en.wikipedia.org/wiki/Dartmouth_College';
-const URL = 'https://www.cs.dartmouth.edu/~albertoq/cs10/notes21.html';
+const URL = 'https://en.wikipedia.org/wiki/Dartmouth_College';
+// const URL = 'https://www.cs.dartmouth.edu/~albertoq/cs10/notes21.html';
 // const URL = 'https://www.cnn.com/2023/05/19/politics/biden-japan-visit-china-reaction/index.html';
 let history = [];
 principle = `   A good summary should be comprehensive, concise, coherent, and independent. These qualities are explained below:
@@ -32,7 +32,7 @@ const openai = new OpenAIApi(configuration);
 
 // make request to OpenAI api
 const summarize = async (title, content, index) => {
-    let retries = 3;        // try to request three times for each paragraph
+    let retries = 5;        // try to request three times for each paragraph
     let success = false;    // if success, turn success to true
     
     //summary for each sections

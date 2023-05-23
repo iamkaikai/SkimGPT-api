@@ -1,208 +1,374 @@
 
-Title: Graphical User Interface (GUI) 
+Title: Dartmouth College in Popular Culture 
 
-Overview: This section discusses the importance of GUI in problem-solving and how it enhances the user's experience. The following are the highlights of the section: 
-
-- Explanation of GUI 
-- Importance of GUI in problem-solving 
-- Enhancements provided by GUI 
-- Examples of GUI-rich applications 
-- Guidelines to create GUI
-
-
-Title: Introduction to Web Services and Querying Data from Web Servers 
-Overview: This paragraph introduces the concept of web services and the need for multiple machines to work together. The focus is on building a simple query interface for Flickr using graphical user interface (GUI).
-Highlights:
-- Introduction to web services and multiple machines working together 
-- Querying and processing data from web servers 
-- Building a simple query interface for Flickr 
-- Use of graphical user interface (GUI)
-
-
-Title: Inner and Anonymous Classes in Java
-
-Overview: This content covers the concept of inner and anonymous classes in Java programming language. These classes can be useful for information hiding, keeping things local and for accessing outer class variables and methods.
-
-Highlight bullet points:
-
-- Inner classes can be defined inside another class to keep things local and to benefit from direct access to the outer class variables and methods
-- Anonymous classes can be created without giving it a name and can use outer class variables and methods
-- As an extension of inner classes, anonymous classes have additional methods and instance variables coded directly within the "new" call.
-
-
-Title: Getting Stuff from the Web
-Overview: This section explains the methods of accessing digital content from the internet. The content explores various ways of accessing data from the web, including built-in Python libraries and third-party packages. 
-
-Highlights include:
-
-- Introduction to web scraping with Python
-- Understanding how to extract, modify, and save web data
-- Use of regular expressions to search and extract content
-- Mechanisms of accessing APIs to obtain and parse JSON and XML data
-- Explanation of packages like BeautifulSoup and Requests that simplify accessibiliry and management of data
-
-
-Title: Java Notes for Programming Beginners
-Overview: A brief introduction for those who would like to learn programming in Java.
-
-- Java is an object-oriented, platform-independent language
-- Java was designed to be easy to learn 
-- Java programs consist of objects interacting with each other 
-- Java programs can run on any machine with a Java Virtual Machine installed 
-- Learning Java requires some understanding of programming concepts like variables, loops, and functions 
-- Java is widely used in web development and software engineering 
-
-Overall, Java is a great starting point for those who would like to learn programming to build practical, real-world applications.
-
-
-Title: Java packages and tutorials for CS 10 problem solving 
-
-Overview: This section highlights the Java packages and tutorials that are useful for CS 10 problem solving. The article provides links to relevant tutorials offered by Oracle, which cover much broader topics and can serve as supplementary materials for further reading.
-
-Highlights:
-
-- Java packages can be helpful in solving CS 10 problems
-- Oracle provides a reference for Java packages 
-- Oracle also offers Java tutorials for beginners 
-- The article provides links to relevant tutorials for CS 10 problem solving 
-- The tutorials cover more topics than just CS 10 problem solving
-
-
-Title: Java Tutorials on Web Services and GUI with XML and JSON Testing
-
-Overview: This content covers various aspects of programming with Java, including graphical user interface using Swing, web service integration, processing of XML data with JAXP, and a final polished product. The material includes notes and slides for each section, as well as code files for implementing the concepts learned. 
-
-Highlights:
-- Graphical user interface design using Swing
-- Accessing web data with IO and web services
-- Processing XML data with JAXP, including DOM
-- Finished product implementation and testing
-- Notes and slides for each section provided
-
-
-Title: Web Services and REST API
-
-Overview: The article talks about using web services instead of web pages to deliver information. It introduces the concept of REST API and how it makes use of the HTTP protocol for communication. It provides examples of how to use the REST API and the importance of encoding special characters in URLs.
-
-- Introduction of web services and REST API
-- Engagement with server and sending input parameters
-- Basic mechanism of REST API built on top of HTTP approach
-- Example of a greeting program using REST API
-- Use of "get" mechanism for fetching web pages
-- Use of "post" mechanism for sending form data
-- Importance of encoding special characters in URLs
-
-
-Title: GUI Construction and Development in Java
-
-Overview: This article explains how to construct a GUI for a photo browser in Java using various components such as buttons, text fields, and combo boxes. The step-by-step guide gives readers an idea of how to build a GUI as well as the working mechanism of GUI development in Java.
-
-Highlights:
-- GUI construction can be facilitated by using a GUI development environment
-- The canvas is created as a JComponent with a method to paint itself
-- The representation of user input is in terms of "events" and a "listener" machinery tells the GUI what events to pay attention to
-- The sort order can be selected using a combo box
-- Different layout managers can be used to organize components in a panel
-
-
-Title: The Finished Product
-Overview: This section discusses the importance of the finished product and provides insights on how to ensure that the product meets the requirements and satisfies the customer. It emphasizes the need for thorough testing, documentation, and validation of the product before launching it in the market.
-
-Highlights:
-
-- The finished product is the ultimate goal of problem-solving and software development process.
-- It is important to test the product thoroughly to identify and fix any faults or bugs.
-- Documentation is crucial for providing guidance and ensuring consistency.
-- Validation of the product is essential to ensure that it meets the required standards and customer expectations.
-- Only launch the finished product once you are confident that it is thoroughly tested, documented, and validated.
-
-
-Title: Introduction to Web Services
-
-Overview: 
-Web Services are an essential tool for developers building web applications, as they allow applications to interact with each other and share data. Through web services, applications can be distributed across different platforms and programming languages, making them more accessible to users.
-
-Highlights:
-- Web services enable communication between different applications over the internet using standard web protocols such as HTTP.
-- With web services, applications can share data and functionality, allowing the development of complex and interconnected systems.
-- Web services are platform-independent, meaning that they can be used across a variety of devices and operating systems.
-- Two common types of web services are SOAP (Simple Object Access Protocol) and REST (Representational State Transfer).
-- The deployment of web services requires careful consideration of security measures to protect sensitive data.
-
-
-Title: FlickrSearch.java for Searching and Fetching Images from Flickr with Java
-
-Overview: FlickrSearch.java combines various pieces of code to search and fetch images with the help of Flickr API. The application restricts queries to 10 results using parameters passed to REST query and constructs image URLs using the 'z' technique, which is up to 640 pixels on a side. 
-
-Highlights:
-- LoadImages method used to construct and execute query, and fetch images from URLs 
-- Query contains various parameters to REST query, such as text input, sort, and result limit of 10 
-- Flickr API key required to access the application 
-- Images stored in an array using Java image mechanism
-
-
-Title: Introduction to Network Programming with Java
-
-Overview: 
-This content introduces Network programming and discusses how to transfer information between computers. It also provides a brief introduction to network protocols and the role of HTTP (HyperText Transfer Protocol) in communication between browsers and web servers. Finally, it demonstrates the use of Java libraries to get data from web servers within a program.
+Overview: Explore the ways in which Dartmouth College has made appearances in popular media, from films to books. 
 
 Highlights: 
-- Network programming focuses on proper transfer of information between computers through interpreting bits 
-- Network protocols ensure reliable communication by handling bits, dropped messages, and misread bits 
-- HTTP is a fundamental protocol for browsers to communicate with web servers 
-- URLs (Uniform Resource Locator) provide the necessary components for identifying web pages 
-- Java libraries enable programmatic access to web pages 
-- Exception handling is crucial when dealing with opening and reading accessed web pages.
+
+- National Lampoon's Animal House, a classic comedy film co-written by Chris Miller '63, loosely based on his fraternity days at Dartmouth.
+- The 1939 film Winter Carnival starring Ann Sheridan and written by Budd Schulberg '36 and F. Scott Fitzgerald, which revolves around Dartmouth's popular Winter Carnival tradition.
 
 
-Title: Interpreting XML Responses from Web Services
-
-
-Overview: This article covers how to interpret responses from web services in XML format. It explores the basics of XML, how to interpret tags and their relationships, and how to handle simple XML syntax issues. It provides a sample program in Java that pulls URLs from Flickr's XML response to a search query.
+Title: Student Life at Dartmouth College
+Overview: Dartmouth College offers a diverse range of opportunities for extracurricular activities, including over 200 student organizations and a thriving Greek system. The college also has unique secret societies and undergraduate societies.
 
 Highlights:
-- XML and HTML are both languages with sets of syntax and grammar rules to describe how to represent something.
-- XML wraps data with tags and can be nested with inner parts being components of the outer parts.
-- XML tags can have a set of name-value attributes that give unique details.
-- To work with XML, we must know how to interpret the tags and their relationships.
-- A sample program in Java is provided to pull URLs from Flickr's XML response to a search query.
+- Over 200 student organizations covering a wide range of interests
+- Notable student groups include the Dartmouth Outing Club and The Dartmouth newspaper
+- Popular Greek system with 32 recognized Greek houses
+- Campus-wide debate on making Greek organizations coeducational
+- Prominent secret society, The Sphinx
+- Additional social/residential organizations known as undergraduate societies.
 
 
-Title: CS 10 Problem Solving: An Overview
+Title: Notable Alumni of Dartmouth College
 
-Overview: CS 10 is an introductory course designed to teach students fundamental problem-solving skills in computer science. Throughout the course, students will work on various programming assignments and practice different programming techniques.
+Overview: Dartmouth College has produced a number of notable alumni across various fields.
+
+Highlights:
+- Nelson Rockefeller, Donald J. Hall Sr., Leon Black, and others in business and finance
+- Sarah Irving, David Girouard, and David C. Hodgson in technology
+- T.J. Rodgers, Russell Carson, and Keith R. Dunleavy in science and engineering
+- Johan H. Andresen Jr. and Anthony Pritzker in philanthropy and entrepreneurship
+- Multiracial Americans and those who prefer not to identify race or ethnicity
+- Percentage of students receiving income-based federal Pell grants for low-income students
+- Percentage of students from American middle-class backgrounds.
+
+
+Title: Dartmouth College Housing Options
+
+Overview: This article discusses the various housing options available at Dartmouth College, including the names, founding years, total capacity, and buildings associated with each house. 
+
+Highlights:
+- There are six main housing options at Dartmouth College: Allen House, East Wheelock House, North Park House, School House, South House, and West House.
+- Each house has a unique color associated with it and was founded in 2016.
+- The total capacity for each house ranges from 214 to 592 students, with the main location capacity ranging from 137 to 366 students.
+- The number of main location buildings and freshman buildings associated with each house varies.
+- Student life at Dartmouth College is enriched by the residential community experience, which includes academic advising and social gatherings.
+
+
+Title: Dartmouth College Overview
+
+Overview:
+Dartmouth College is a private Ivy League research university located in Hanover, New Hampshire, United States of America. The college was founded in 1769 by Eleazar Wheelock and originally established to train Native Americans as Christian missionaries. Today, it has a total undergraduate enrollment of 4,410 and follows a trimester-based academic calendar. 
+
+Highlights: 
+- One of the nine colonial colleges chartered before the American Revolution
+- Offers over 57 undergraduate majors and 87 graduate programs 
+- The college has 39 academic departments across Humanities, Social Sciences, Natural Sciences, and Engineering
+- Amongst the smallest Ivy League schools in the US 
+- Ranked #12 in National Liberal Arts Colleges (2020 edition) by US News & World Report
+- Notable alumni include Robert Frost, Mindy Kaling, and Dr. Seuss
+
+
+Title: Dartmouth College - Traditions and Celebrations Overview
+
+Dartmouth College is known for its vibrant and lively campus culture, marked by various traditions and celebrations that take place throughout the academic year. These traditions are a significant part of the college experience and contribute to the sense of community and pride among students, faculty, and alumni. Some of the highlights of these traditions include:
+
+- "Big weekends" or "party weekends" held each term
+- Homecoming, marked by a bonfire on the Green constructed by the freshman class
+- Winter Carnival, a celebration of winter sports and the oldest tradition of its kind in the USA
+- Green Key, a weekend of campus parties and celebrations
+- First-Year Trips, a four-day journey for incoming freshmen to various outdoor locations
+
+In addition to these traditions, the college also has various insignia and symbols that represent its history and values, including a motto and a song.
+
+
+Title: Governance and Board of Trustees of Dartmouth College
+
+Overview: This section of the article highlights the governance structure and board of trustees at Dartmouth College, which comprises various elected trustees, including charter and alumni trustees. 
 
 Highlights:
 
-- An overview of the CS 10 course and its objectives.
-- Introduces students to problem-solving and computational thinking.
-- Emphasizes on designing, coding and testing of programs, functions and algorithms.
-- Introduces students to Python coding language, programming environments and tools.
-- Helps students build solid foundations in programming, developing their technical and problem-solving skills.
-- Offers opportunities to work on coding projects and assignments individually, in pairs or in groups.
-- Provides students with a hands-on approach to coding and project development.
-- Enables students to explore their interests in computer science through various programming projects and applications.
+- Dartmouth is governed by a board of trustees consisting of the college president, the state governor, 13 charter trustees, and eight alumni trustees.
+- Nominees for alumni trustee are determined by a poll of the members of the Association of Alumni of Dartmouth College, selecting from names put forward by the Alumni Council or by alumni petition.
+- In 2007, the board decided to add several new members, all charter trustees, causing controversy and prompting a lawsuit from the Association of Alumni, which was later withdrawn.
+- In 2008, the board added five more charter trustees to its members. 
+
+Campus: N/A (not mentioned in the paragraph)
 
 
-Title: Processing XML in CS 10 Programming
+Title: Notable Dartmouth Alumni
 
-Overview: This section discusses the concept of processing XML in the context of computer programming, specifically in CS 10. It highlights the importance of XML in data exchange and storage, and presents some techniques for processing XML files.
+Overview: Dartmouth College has produced successful and notable alumni across diverse fields such as politics, finance, literature, entertainment and sports. 
+
+Highlights:
+- Dartmouth graduates earn higher median salaries than alumni of any other American university surveyed
+- Top industries for Dartmouth graduates are finance, consulting, and technology 
+- Alumni include 164 members of the United States Senate and House of Representatives 
+- Dartmouth has produced 13 Pulitzer Prize winners in literature and journalism, including Robert Frost 
+- Notable alumni in the entertainment industry include Shonda Rhimes, David Benioff and Fred Rogers 
+- Dartmouth has graduated three Nobel Prize winners in physics, chemistry and physiology or medicine, and nine presidents of the college were also alumni 
+- Successful alumni in professional sports include baseball players Brad Ausmus and Mike Remlinger, football players Nick Lowery and Jay Fiedler, and shot putter Adam Nelson.
+
+
+Title: The Seal of Dartmouth College: A History
+
+Overview: This article delves into the history of the seal of Dartmouth College, exploring its origins, symbolism, and modifications over the years.
+
+Highlights:
+- Dartmouth's royal charter mandated the creation of a seal for official documents and diplomas in 1769.
+- Founder Eleazar Wheelock designed a seal that resembled that of the Society for the Propagation of the Gospel in order to maintain the illusion that his college was primarily for mission work.
+- The seal features an oval circumscribed by a line containing the seal's title, Native Americans, and a label with the words "vox clamantis in deserto."
+- The College Publications Committee commissioned a line drawing version of the seal in 1940 by typographer William Addison Dwiggins, which was later modified in 1957 to reflect the college charter's date of 1769 and continues to be used today under trademark number 2305032.
+
+
+Title: Dartmouth College and its Native American History 
+
+Overview: The charter of Dartmouth College granted in 1769 included a provision for education of Native American youth, but Dartmouth ended up with very few indigenous students graduating in its first 200 years. In the 1970s, the college renewed its commitment to Native American education, developing social and academic programming, resulting in an impressive record of graduating Native American students, more than all other Ivy League schools put together. 
+
+Highlights: 
+- Dartmouth's charter included provisions for educating Native American youth 
+- The initial institutional emphasis was on white student education, but funds for the school were raised by a Native American named Samson Occom 
+- In its first 200 years, only 19 Native American students graduated from Dartmouth 
+- In the 1970s, Dartmouth established Native American academic and social programs 
+- Since then, over 700 Native American students from over 200 different tribes have graduated from Dartmouth College
+
+
+Title: Dartmouth College Campus Overview
+
+Overview:
+Dartmouth College is a prestigious Ivy League institution located in Hanover, New Hampshire. The 269-acre campus is centered on a 5-acre green and varies in age and architecture. While located in a rural setting, it is easily accessible to major cities such as Boston, New York, and Montreal.
+
+Highlights:
+- The campus is situated in Hanover, New Hampshire, and is the largest private landowner of the town.
+- Dartmouth owns 4,500 acres of Mount Moosilauke in the White Mountains and a 27,000-acre tract of land in northern New Hampshire known as the Second College Grant.
+- The college has actively sought to reduce carbon emissions and energy usage on campus.
+- The campus features many American elm trees, despite Dutch elm disease, and has the largest Kentucky coffeetree in New Hampshire at 91 feet tall.
+- Dartmouth is connected to major cities by intercity bus services provided by Dartmouth Coach and Greyhound Lines.
+
+
+Title: Housing and Dining at Dartmouth College
+
+Overview: Dartmouth College offers a variety of residential options for their undergraduate students. Beginning in 2016, all undergraduate students are placed into one of six House communities, alongside independent Living Learning Communities. The campus also offers several dining options operated by Dartmouth Dining Services.
 
 Highlights:
 
-- XML is a markup language that uses a hierarchical structure to represent data.
-- XML is widely used in data exchange between different systems, as it allows for easy parsing and interpretation by different programming languages.
-- In CS 10 programming, XML processing can be done using tools like DOM and SAX parsers.
-- DOM (Document Object Model) parser creates an in-memory representation of the XML document and allows for easy manipulation of individual elements.
-- SAX (Simple API for XML) parser is an event-driven approach that reads the XML document sequentially and triggers events for each element encountered. SAX parser is faster and requires less memory compared to DOM parser.
-- XML processing can also involve transformations using XSLT (Extensible Stylesheet Language Transformations), which allows for converting XML data to different formats like HTML, PDF, or CSV.
+- Six House communities for undergrad students similar to residential colleges
+- Dormitories with various designs and room arrangements
+- Housing guaranteed for freshman and sophomores
+- More than 3000 students live in housing provided by the college
+- 11 dining establishments around campus, including all-you-can-eat dining hall, cafes, a convenience store, and 3 snack bars
+- Collis Center serves as the center of student life and programming
+- Robinson Hall, next door to both Collis Center and Class of 1953 Commons, houses the offices of several student organizations including the Dartmouth Outing Club and The Dartmouth daily newspaper.
 
+
+Title: Dartmouth College - A Comprehensive Overview
+
+Overview: Dartmouth College is a prestigious liberal arts institution that offers undergraduate students a four-year Bachelor of Arts and ABET-accredited Bachelor of Engineering degree. The college has 39 academic departments that offer 56 major programs, while students may also design special majors or engage in dual majors. It also boasts three professional schools - Geisel School of Medicine, Thayer School of Engineering, and Tuck School of Business. Dartmouth is home to a diverse faculty and scores high in rankings globally.
+
+Highlight:
+- 56 major programs and an option for special majors and dual majors
+- Three professional schools providing degrees in medicine, engineering, and business
+- Graduation requirements include language proficiency, distributive academic fields, and a writing class or seminar
+- Offers 57 off-campus programs, including foreign study programs and language study abroad programs
+- Boasts a diverse faculty with a higher proportion of female tenured professors among Ivy League universities
+- Historically significant with roots dating back to the 18th Century
+- Highly ranked globally across different academic disciplines
+
+
+Title: Financial Aid and Support at Dartmouth College
+Overview: Dartmouth College offers generous financial support to students from a diverse range of backgrounds. The college is committed to meeting 100% of demonstrated need for students seeking aid, regardless of their financial circumstances. Additionally, Dartmouth offers free tuition for students from families with total incomes of $125,000 or less, eliminates undergraduate student loans, and provides extensive scholarship grants.
+
+Highlights:
+- Dartmouth College meets 100% of demonstrated need for all admitted students seeking financial aid.
+- The college practices international need-blind admissions, admitting all applicants without regard to financial circumstances.
+- Students from families with total incomes of $125,000 or less receive free tuition at Dartmouth College.
+- Undergraduate student loans have been eliminated at the college, with expanded scholarship grants replacing them.
+- Dartmouth awarded $88.8 million in need-based scholarships to students in 2015.
+- Despite these efforts, a 2022 article from The Dartmouth highlights that not all student loans have been eliminated, with 72.6% of student debt remaining for the Class of 2021.
+- Dartmouth’s commitment to generous financial support is reflected in The Dartmouth Plan, which emphasizes providing a high-quality education for all students, regardless of their background or financial means.
+
+
+Title: Dartmouth College Shield and Coat of Arms Design
+
+Overview: This article discusses the history of Dartmouth College's shield and coat of arms design.
+
+Highlights:
+
+- The Dartmouth College Shield was approved for general use in 1926.
+- Artist W. Parke Johnson designed the emblem based on the original seal's shield, which is no longer available.
+- Canadian artist and designer Thoreau MacDonald created a new coat of arms design based on the shield in 1944, which is still widely used.
+- College designer John Scotford made a stylized version of the shield during the 1960s, which did not achieve the same success as MacDonald's design.
+- The shield appears to have been used as the basis for the Geisel School of Medicine's shield, and it has been reproduced as small as 20 micrometers across.
+- The Dartmouth College shield and coat of arms design have appeared on various medals and other objects.
+
+
+Title: The History and Controversy of Dartmouth College's Nickname and Mascot
+
+Overview: Dartmouth College is known as "The Big Green" due to the forest green color adopted by students in 1866. However, the college's athletic teams were unofficially known as "the Indians" from the 1920s until the early 1970s, when the Trustees declared it inconsistent with the college's goals. Since then, various student initiatives have proposed a new official mascot, but none have been successful.
+
+Highlights:
+
+- Dartmouth's official color is forest green, which was adopted by students in 1866
+- From the 1920s until the early 1970s, the Dartmouth athletic teams were known as unofficially as "the Indians"
+- In 1974, the Trustees declared the "use of the [Indian] symbol in any form to be inconsistent with present institutional and academic objectives of the College in advancing Native American education"
+- Various student initiatives have attempted to create a new official mascot, including Keggy the Keg and the Dartmoose, but none have been officially adopted.
+
+
+Title: Student Body and Campus Life at Dartmouth College
+
+Overview: Dartmouth College has a diverse student body with a majority of white and Asian students. The college offers a wide range of extracurricular activities and has a strong student government. However, the campus has also faced issues with reported cases of rape, hazing, and alcohol abuse.
+
+Highlights:
+- As of May 2, 2022, Dartmouth College's student body composition consisted of 49% white, 15% Asian, and 10% Hispanic students among others.
+- The college has a student government that represents students on issues related to student life, and students elect their representatives annually.
+- Dartmouth was ranked third in Princeton Review's "Quality of Life" category in 2006 and has a wide range of organizations, teams, and sports.
+- The college has a high number of reported cases of rape, but it is attributed to more victims feeling comfortable reporting incidents than in previous years.
+- Dartmouth fraternities have been accused of hazing, alcohol abuse, and sexual harassment.
+
+
+Title: Dartmouth College: Campus Life and Facilities
+
+Overview: Dartmouth College offers a rich campus life to students with state-of-the-art facilities in diverse fields. The Hopkins Center for the Arts ("the Hop"), the Geisel School of Medicine, and the Thayer School of Engineering and Tuck School of Business are some of the top facilities at the College. Dartmouth libraries have more than 2.48 million volumes, while athletic facilities are designed to meet the sporting needs of all students.
+
+Highlights:
+- Hopkins Center for the Arts is a creative and performing arts facility that houses the College's drama, music, film, and studio arts departments.
+- The Geisel School of Medicine is one of the three separate graduate schools located on the north side of the campus.
+- The Thayer School of Engineering and Tuck School of Business are located at the end of Tuck Mall, west of the center of the campus and near the Connecticut River.
+- Dartmouth's libraries are all part of the collective Dartmouth College Library, which comprises 2.48 million volumes and 6 million total resources, including videos, maps, sound recordings, and photographs.
+- Athletic facilities are designed to meet the sporting needs of all students.
+
+
+Title: The History of Dartmouth College
+
+Overview: Dartmouth College was founded in 1769 by Eleazar Wheelock as a school to train Native Americans as Christian missionaries. It is one of the nine colonial colleges chartered before the American Revolution. Over the years, the college has undergone many changes, including various expansions and revivals. 
+
+Highlights:
+- Founded in 1769 by Eleazar Wheelock as a Christian missionary school for Native Americans
+- Dartmouth is one of the nine colonial colleges chartered before the American Revolution
+- Initially founded as an Indian charity school but expanded to a college for whites
+- Dartmouth College taught its first African-American students in 1775 and 1808
+- Dartmouth underwent major revitalization under President William Jewett Tucker and became a reputable national academic institution
+- Dartmouth College started admitting women as full-time students and introduced selective admissions in the 1970s under President John George Kemeny
+- Dartmouth was involved in various controversies, including racial quotas to deny Jews and sexual harassment allegations against its professors
+- In 2019, Dartmouth College was elected to the Association of American Universities (AAU) and continues to be a prestigious academic institution.
+
+
+Title: Athletics and Sports at Dartmouth College
+Overview: Dartmouth College offers a variety of athletic opportunities for students, with a high participation rate in both varsity and club/intramural sports. The college competes in the NCAA Division I Ivy League conference and offers a range of sports, including traditional American team sports as well as more niche options. Athletic scholarships are not offered, in keeping with Ivy League regulations. Physical education requirements include a swim test and three terms of physical education.
+
+Highlights:
+- Approximately 20% of students participate in varsity sports, and nearly 80% participate in some form of athletics
+- Dartmouth has 33 intercollegiate varsity teams: 15 for men, 17 for women, and coed sailing and equestrian programs
+- Other varsity sports include track and field, softball, squash, sailing, tennis, rowing, soccer, skiing, and lacrosse
+- Dartmouth also offers 26 club and intramural sports, with a 75% participation rate among undergraduates
+- Notable successes include the fencing, men's rugby, and figure skating teams
+- Dartmouth requires all undergraduates to complete a swim test and three terms of physical education.
+
+
+Title: Dartmouth College: Motto, Song, and Seal
+
+Overview:
+This content highlights the motto, song, and seal of Dartmouth College, an Ivy League institution in New Hampshire. It includes details about the Latin motto, its translation, and significance. Additionally, it provides information about the official school song, its history, and name change. Finally, it briefly touches on the college's seal.
+
+Bullet Points:
+- Dartmouth's motto is "Vox clamantis in deserto" - translated as "The voice of one crying in the wilderness."
+- The motto references the college's location on the frontier of European settlement.
+- "Men of Dartmouth" is the school's official song since 1926.
+- The lyrics of the song were changed to refer to women as well as men, and the song was retitled to "Alma Mater" in the 1980s.
+- The college's seal is mentioned briefly, without detailed information.
+
+
+Title: Admissions and Financial Aid at Dartmouth College
+
+Overview: Dartmouth College is considered to be a highly selective institution with a rigorous admissions process. However, the college meets 100% of students' demonstrated financial need, including for international students.
+
+Highlights:
+- Admit rate for the 2022 entering class: overall - 6.24%, ED - 21.3%, RD - 4.7%
+- Test scores: middle 50% SAT EBRW - 710-770, SAT Math - 730-790, ACT Composite - 32-35
+- For the Fall 2020 freshman class, Dartmouth received over 21,000 applications and admitted 8.8%
+- Dartmouth received 685 transfer applications for the 2016-2017 academic year with an acceptance rate of 5.1%
+- Financial aid: Dartmouth meets 100% of students' demonstrated financial need and admits all students, including international students, on a need-blind basis.
+
+
+Title: Dartmouth College's Unique Academic Scheduling System, the Dartmouth Plan 
+
+Overview: Dartmouth College operates on a quarter system with four ten-week academic terms and a unique academic scheduling system called the Dartmouth Plan (D-Plan). This system permits customization of the academic year for each student, allowing them to choose between studying on-campus, studying at an off-campus program, or taking a term off.  
+
+Highlights:
+- All undergraduates are required to be in residence for Fall, Winter, and Spring terms of their freshman and senior years, as well as the Summer term of their sophomore year. 
+- Students can petition to alter their D-Plan to be off during their freshman, senior, or sophomore summer terms.
+- The typical course load is three classes per term, and students will generally enroll in classes for 12 total terms over the course of their academic career.
+- Implemented in the 1970s, the D-Plan was created to increase enrollment without enlarging campus accommodations, and remains in effect today.
+- The system has been modified over the years to address concerns over social and academic continuity. 
+
+Note: The content provided does not have a clear central theme and may require more context to provide an accurate summary. The bullet points list the highlights of the D-Plan system and its implementation, and do not include information on the board of trustees mentioned in the last paragraph.
+
+
+Title: Dartmouth College - Overview and Highlights
+
+Overview:
+Dartmouth College is a private research university located in Hanover, New Hampshire, and was established in 1769. Initially set up to educate Native Americans in Christian theology, it is one of the nine colleges chartered before the American Revolution. The university has a strong emphasis on undergraduate education, but it also provides graduate and professional programs. With a student enrollment of about 6,700, Dartmouth is the smallest university in the Ivy League.
+
+Highlights:
+- Established in 1769, it is one of the nine colonial colleges chartered before the American Revolution.
+- Known for its strong focus on undergraduate education, Dartmouth offers 60 majors in various disciplines.
+- Dartmouth has four professional and graduate schools: the Geisel School of Medicine, the Thayer School of Engineering, the Tuck School of Business, and the Guarini School of Graduate and Advanced Studies.
+- The university has a quarter system, operating year-round on four ten-week academic terms.
+- Dartmouth is consistently cited as a leading university for undergraduate teaching by U.S. News & World Report.
+- Prominent alumni from Dartmouth include 170 members of the U.S. Senate and the U.S. House of Representatives, 24 U.S. governors, 23 billionaires, 8 U.S. Cabinet secretaries, 3 Nobel Prize laureates, 2 U.S. Supreme Court justices, and a U.S. vice president.
+
+
+Title: Athletics and Student Life Facilities at Dartmouth College
+
+Overview: Dartmouth College has a range of athletic and student life facilities located on campus and nearby, including multiple gyms, sports fields, and a ski facility. Additionally, the college has a variety of residential housing options for students, all within close proximity to campus.
+
+Highlights:
+
+- Alumni Gymnasium serves as the center of athletic life on campus, with a fitness center, multiple pools, and a 1/13th-mile indoor track
+- Berry Sports Center, located adjacent to Alumni Gymnasium, contains a basketball and volleyball court and the Kresge Fitness Center
+- Memorial Field, a 15,600-seat stadium overlooking the football field and track, hosts sporting events and is visible from Alumni Gymnasium
+- Thompson Arena, designed by Pier Luigi Nervi, houses Dartmouth's ice rink
+- Nathaniel Leverone Fieldhouse, another athletic facility visible from Memorial Field, is home to the indoor track
+- Dartmouth Skiway, located near campus in Lyme Center, New Hampshire, serves as the winter practice grounds for the Dartmouth ski team
+- The college also has various residential housing options for students, including dormitories and apartments, all in close proximity to campus.
+
+Note: The last paragraph mentions residential housing and student life facilities but is not elaborated upon in the given content.
+
+
+Title: Dartmouth College: A Brief Overview of Its History and Resources
+
+Overview: Dartmouth College is a prestigious Ivy League educational institution located in Hanover, New Hampshire. Founded in 1769 by Reverend Eleazar Wheelock, it is the ninth oldest college in the United States. The college has a rich history, and its contributions to the development of the nation are noteworthy. Dartmouth boasts a large campus with stunning architecture, an arboretum, and is home to the Hood Museum of Art, among other resources.
+
+Highlights:
+
+- Historical New Hampshire publication article on Dartmouth College's role in building the nation authored by Richard K. Behrens
+- "A History of Dartmouth College and the Town of Hanover" volume 2 book co-authored by Frederick Chase and John King Lord
+- "Dartmouth Outing Guide," a popular guidebook for outdoor enthusiasts, written by Chuck Drake
+- "The Dartmouth Story: A Narrative History of the College Buildings, People, and Legends," a comprehensive history book by Robert B. Graham
+- "Dartmouth College: Off the Record," a guidebook published by College Prowler
+- "Forever Green: The Dartmouth College Campus—An arboretum of Northern Trees," a book showcasing Dartmouth's extensive tree collection by Molly K. Hughes and Susan Berry
+- "History of Dartmouth College" by Leon B. Richardson, an early history publication
+- An ArtsEditor.com article on the portraits of Félix de la Concha
+- Extensive resources available through the college, including campus tours, online exhibits, and the Hood Museum of Art
+
+
+Title: Academic Rankings and Admissions at Dartmouth College
+
+Overview: This article provides information on the academic rankings and admissions at Dartmouth College, including national and global rankings, graduate school rankings, and departmental rankings.
+
+Highlights:
+
+Academic Rankings:
+- Ranked tied for 13th among undergraduate programs at national universities by U.S. News & World Report in 2021
+- Ranked 2nd best for veterans, tied for 5th best in undergraduate teaching, and 9th for "best value" at national universities by U.S. News & World Report in 2020
+- Ranked 10th overall and 10th in research universities by Forbes in 2019
+- Ranked among the 90-110th best universities in the nation by the 2021 Academic Ranking of World Universities
+
+Graduate School Rankings:
+- Dartmouth's Tuck School of Business ranked 10th by U.S. News & World Report
+- Dartmouth's Thayer School of Engineering ranked 53rd by U.S. News & World Report
+- Dartmouth's Geisel School of Medicine ranked 24th for Primary Care and 45th for Research by U.S. News & World Report
+
+Departmental Rankings:
+- Dartmouth's Biological Sciences ranked 33rd and Psychology ranked 53rd by U.S. News & World Report
+- Dartmouth's Chemistry, Mathematics, and Physics Departments ranked in the top 70 by U.S. News & World Report
+- Dartmouth's Computer Science Department ranked 43rd by U.S. News & World Report
+
+Admissions:
+- Admissions at Dartmouth College are highly selective with an acceptance rate of 7.9% in the 2020-2021 admission cycle.
+- The college is accredited by the New England Commission of Higher Education.
 
 -------------------------
-1. Graphical User Interface (GUI)
-This section explains the importance of GUI in problem-solving and how it improves the user's experience. The main topics covered are the definition of GUI, its relevance in problem-solving, how it enhances user experience, examples of GUI-rich applications, and guidelines to create GUI.
-
-2. Inner and Anonymous Classes in Java
-This content covers the concept of inner and anonymous classes in Java programming. The major bullet points include how inner classes can be defined inside another class to keep things local, how Anonymous classes can be created without giving it a name, and how both have additional methods and instance variables coded directly within the "new" call.
-
-These two summaries are comprehensive, concise, coherent, and independent, which make them great examples of good summaries.
+Several titles and overviews provided discuss different aspects of Dartmouth College, a prestigious Ivy League institution located in Hanover, New Hampshire. The college was established in 1769 and offers undergraduate, graduate, and professional programs. Dartmouth is well-known for its strong focus on undergraduate education, diverse student body, and generous financial aid. It has a unique quarter-based academic system called the Dartmouth Plan. The college has a wide range of resources and facilities for academics, athletics, and campus life. Dartmouth College has a notable history and alumni, having produced successful graduates across various fields such as politics, finance, literature, entertainment, and sports.

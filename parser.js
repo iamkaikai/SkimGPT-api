@@ -4,7 +4,6 @@ const { Readability } = require('@mozilla/readability');
 const { JSDOM } = require('jsdom');
 
 async function fetchAndParseURL(URL) {
-    let result_textcontent = '';
     let result_html = '';
 
     try {
@@ -39,8 +38,8 @@ async function fetchAndParseURL(URL) {
             });
 
             result_text = result_text_lines.join("\n");
-            save(result_text, './input/parser.txt');
-            save(result_html, './input/parser.html');
+            save(result_text, './output/parser.txt');
+            save(result_html, './output/parser.html');
 
             //process the bad format
             sections = result_text.split('----');
@@ -58,7 +57,6 @@ async function fetchAndParseURL(URL) {
 function save(result,out_dir){
     fs.writeFile(out_dir, result, (err) => {
         if (err) throw err;
-        console.log('The file has been saved!');
     });
 }
 

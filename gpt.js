@@ -9,15 +9,16 @@ let file = "./input/content.txt"
 const path = require('path');
 // const URL = 'https://github.com/openai/jukebox';
 // const URL = 'https://en.wikipedia.org/wiki/Dartmouth_College';
-const URL = 'https://www.cs.dartmouth.edu/~albertoq/cs10/notes21.html';
-// const URL = 'https://www.cnn.com/2023/05/19/politics/biden-japan-visit-china-reaction/index.html';
+// const URL = 'https://www.cs.dartmouth.edu/~albertoq/cs10/notes21.html';
+const URL = 'https://www.cnn.com/2023/05/19/politics/biden-japan-visit-china-reaction/index.html';
 let history = [];
 let frontendJson = {
     "general": {
         "title": null,
         "num_sections": null,
+        "overview": null,
         "result_html": null,
-        }
+    }
 }
 
 principle = `   A good summary should be comprehensive, concise, coherent, and independent. These qualities are explained below:
@@ -30,12 +31,11 @@ principle = `   A good summary should be comprehensive, concise, coherent, and i
 //config OpenAI api
 const configuration = new Configuration({
     organization: "org-fVyeMZZJOoOtXtwEnS5za3pl",
-    //apiKey: process.env.OPENAI_API_KEY,
-    apiKey: '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',
+    apiKey: process.env.OPENAI_API_KEY,
     completionParams: {
         temperature: 0.5,
         top_p: 0.8
-      }
+    }
 });
 const openai = new OpenAIApi(configuration);
 
@@ -60,11 +60,22 @@ const summarize = async (title, content, index) => {
 
             // push result to history to keep track of the summary for each paragraph
             result_temp = response.data['choices'][0]['message']['content'];
+            result_temp_len = await encode(result_temp).length;
             history.push("\n" + result_temp + "\n")
 
             console.log('---------------');
             console.log("length: " + encode(content).length + "->" + encode(result_temp).length );
             console.log("part " + index + "\n" + result_temp + "\n");
+            
+            
+            frontendJson[`section${index + 1}`] = {
+                "id": index + 1,
+                "length": result_temp_len,
+                "title": title,
+                "overview": result_temp,
+                "content": content
+            };
+            
             success = true;
 
         } catch(error){
@@ -73,13 +84,7 @@ const summarize = async (title, content, index) => {
             retries -= 1;
         }
     }
-    frontendJson[`section${index + 1}`] = {
-        "id": index + 1,
-        "length": encode(result_temp).length,
-        "title": title,
-        "overview": result_temp,
-        "content": content
-    };
+   
 };
 
 const final_sum = async (content) => {
@@ -144,6 +149,7 @@ async function main(){
     history = history.join('\n')
     console.log(history);
     const result = await final_sum(history);
+    frontendJson["general"]["overview"] = result;
 
     final_summary = history + "\n-------------------------\n" + result
     fs.writeFile('./output/summary.txt', final_summary, (err) => {

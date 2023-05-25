@@ -22,15 +22,18 @@ async function fetchAndParseURL(URL) {
             let target_line = 0;
             let result_html_lines = (result_html.split('\n'));
             let result_text_lines = (result_text.split('\n'));
+            let i = 1;
 
             result_html_lines.forEach(element => {
                 let regex = /(<h1|<h2|<h3|<h4)([^>]*)>(.*?)<\/h[1-4]>/;
                 let match = element.match(regex);
+                
                 if (match) {
                     keyword = match[3];
                     target_line = line_counter;
                     regex_txt = new RegExp('\\b' + keyword + '\\b', 'g');
-                    result_text_lines[target_line] = result_text_lines[target_line].replace(regex_txt, '\n----\n\n\n' + '<section>' + keyword + '</section>')
+                    result_text_lines[target_line] = result_text_lines[target_line].replace(regex_txt, '\n----\n\n\n' + '<section id=section' + i + '>' + keyword + '</section>\n');
+                    i++;
                 }else{
                     result_text_lines[target_line] += '\n----\n';
                 }                

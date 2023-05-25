@@ -54,7 +54,7 @@ async function fetchAndParseURL(URL) {
     } catch (error) {
         console.log(error);
     }
-    return sections;
+    return [sections, result_html];
 }
 
 function save(result,out_dir){

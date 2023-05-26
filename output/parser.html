@@ -1,11 +1,10 @@
 <title>CS 10 | Problem solving</title>
-<title>CS 10 | Problem solving</title>
 <div id="readability-page-1" class="page"><div id="content">
-<h2 id="notetitle">Web services</h2> <p>So far we've been dealing with the world as it exists on our individual computers. But a lot of exciting problems arise in the context of having multiple machines work together on something. We'll get a taste of such approaches in the upcoming week, starting today with the basic question of how to obtain and process data from web servers. Our goal is to build a simple query interface for <a href="http://www.flickr.com/">Flickr</a>; we'll cover how to send and process queries, and how to use a graphical user interface (GUI) to provide a somewhat nicer interface than we have seen.</p>
+<h2 id="notetitle" section id=reader-view1><a href="#section1">Web services</a></h2> <p>So far we've been dealing with the world as it exists on our individual computers. But a lot of exciting problems arise in the context of having multiple machines work together on something. We'll get a taste of such approaches in the upcoming week, starting today with the basic question of how to obtain and process data from web servers. Our goal is to build a simple query interface for <a href="http://www.flickr.com/">Flickr</a>; we'll cover how to send and process queries, and how to use a graphical user interface (GUI) to provide a somewhat nicer interface than we have seen.</p>
 
 <p>We'll be using a number of different Java packages to help out. As usual, Oracle provides a detailed reference. Somewhat more useful to get going, they also provide a set of <a href="http://docs.oracle.com/javase/tutorial/index.html">Java tutorials</a>. I've provided links to relevant ones within the menu below. Note that they cover much more than we do, and are just provided for your reference in case you want supplementary reading.</p>
 
-<h3>Outline</h3>
+<h3 section id=reader-view2><a href="#section2">Outline</a></h3>
 <ul>
  <li><a href="#gui">Graphical user interface</a> [Java tutorials on <a href="http://docs.oracle.com/javase/tutorial/uiswing">Swing</a>]</li>
  <li><a href="#get">Getting stuff from the web</a> [Java tutorial on <a href="http://docs.oracle.com/javase/tutorial/essential/io">IO</a>]</li>
@@ -22,7 +21,7 @@
 
 <p><a href="https://cs.dartmouth.edu/~tjp/cs10/slides/Day21.pdf">Slides from class (Section 2 - TJP)</a></p>
 
-<h2>Graphical user interface</h2>
+<h2 section id=reader-view3><a href="#section3">Graphical user interface</a></h2>
 
 <p>Let's start by mocking up a little GUI for the photo browser we have in mind: <a href="notes/21/code/FlickrSearchCore.java">FlickrSearchCore.java</a>.  GUI construction is tedious, and best done with a GUI development environment that lets us graphically lay out the various components. So we'll just do something simple that illustrates the use of some of the components (buttons, a text field, a combo box); once you've seen these, you can pick up the rest by following the same principles.</p>
 
@@ -66,7 +65,7 @@
 
 <p>The key thing we have to account for with multiple components is how to lay them out. (That's what's best done graphically.) Java provides a number of different layout managers with different behaviors. We put the buttons in their panel with a "flow layout" that just adds them in rows, left to right, with a new row started when the next component won't fit in the current row. We then put that panel along with the canvas into the main content panel with a "border layout" that allows the user to put one thing at the top (NORTH), one at the bottom (SOUTH), one on the right side (EAST), one on the left side (WEST), and one in the middle (CENTER). The CENTER expands to occupy all space not used by the other four. So the button panel is at the top and the canvas in the center, taking the rest of the space.</p>
 
-<h2>Getting stuff from the web</h2>
+<h2 section id=reader-view4><a href="#section4">Getting stuff from the web</a></h2>
 
 <p>At its heart, network programming is all about how to properly transfer information between computers. As we discussed briefly when we first encountered type declarations in Java, a computer only ever deals with bits, so how is any particular set of 0s and 1s to be interpreted? What does an incoming bunch of bits imply, and how do I send the appropriate outgoing bunch of bits? That's what network <em>protocols</em> are all about. With the internet, there are multiple layers of how to handle bits, to gain increasing reliability (in case of misread bits, dropped bits or entire messages, etc.). You'll have to take the networking course to get into that; here we're just going to look at a high level, provided by web-based protocols.</p>
 
@@ -107,7 +106,7 @@ public class WWWGet {
 <p>As with files, trying to open and read from a URL can raise exceptions. 
 An exception-handling version of our previous buck-passing program: <a href="notes/21/code/WWWGetTry.java">WWWGetTry.java</a>. The handlers for the exceptions from creating the URL and the reader are at the bottom. We then have a try-within-a-try for reading (boy would Yoda be displeased — do or do not, there is no try), because we want to close the stream no matter what. Note that the stream closing itself can throw an exception, which is handled by the same catcher as for opening. Whew.</p>
 
-<h2>Web services</h2>
+<h2 section id=reader-view5><a href="#section5">Web services</a></h2>
 
 <p>Instead of dealing with web pages, we'll be dealing with web services — when information is delivered via this same machinery. In that case, we actively engage with the server, sending it values of parameters with the input, and getting back results specific to that input. It's like a function call (and indeed some of the mechanisms make it feel even more that way). We'll be using a basic, but powerful and common mechanism, called REST (REpresentational State Transfer) that is built directly on top of the same HTTP approach we've just used for web pages.</p>
 
@@ -118,7 +117,7 @@ ampersands (&amp;); e.g., <a href="http://cs.dartmouth.edu/~albertoq/cs10/hello.
 <p>One thing to note is that not all characters are acceptable in a URL. For example, URLs aren't supposed to include spaces. So we have to "URL encode" the parameter values using an encoding of such "special characters". A simple way to do that is with the URLEncoder class:</p>
 <pre><code>URL url = new URL("http://cs.dartmouth.edu/~albertoq/cs10/hello.php?name="
          + URLEncoder.encode("alberto quattrini li","UTF-8"));</code></pre>
-<h2>Processing XML</h2>
+<h2 section id=reader-view6><a href="#section6">Processing XML</a></h2>
 
 <p>So now we've handled sending parameters to a web service; how do we get a response back that we can interpret? There are a number of approaches to encoding data in a way that a program could interpret it. One standard way is XML (eXtensible Markup Language), which is related to and much like HTML (HyperText Markup Language) in that they are both languages (sets of syntax and grammar rules) describing how to represent something. For HTML, that's hypertext; for XML, it's basically anything.</p>
 
@@ -147,7 +146,7 @@ ampersands (&amp;); e.g., <a href="http://cs.dartmouth.edu/~albertoq/cs10/hello.
 
 <p>The code: <a href="notes/21/code/ProcessXML.java">ProcessXML.java</a>. Save <a href="notes/21/flickr-dart.xml">flickr-dart.xml</a> in a folder called "inputs". We start by pulling the XML file into one big String. We read the individual lines, using the same approach we've seen before, and concatenate them together. Along the way, we replace ampersands with pluses, the gross hack I mentioned. Then there's quite a bit of boilerplate to parse the XML string, due to the power and generality of the mechanism. Finally, we piece together the URLs for the photo elements as described. I had to write an extra little piece of code to look up the attribute of a given name and return its value, just by marching down the list of attributes and seeing which one matches.</p>
 
-<h2>The finished product</h2>
+<h2 section id=reader-view7><a href="#section7">The finished product</a></h2>
 
 <p><a href="notes/21/code/FlickrSearch.java">FlickrSearch.java</a> puts together all the pieces we've seen, with just a bit more to drive the search.</p>
 
@@ -157,12 +156,7 @@ ampersands (&amp;); e.g., <a href="http://cs.dartmouth.edu/~albertoq/cs10/hello.
 
 <p>We form the image URLs using the technique we already discussed; the "z" at the end of the URLs indicates an image that is max 640 pixels on a side. We then use the standard Java image mechanism to pull in the images and store them in an array. </p>
 
-<h2>
-----
-
-
-<section id=section16><a href="#section16">Java notes</a></section>
-</h2>
+<h2 section id=reader-view8><a href="#section8">Java notes</a></h2>
 
 <dl>
 <dt>inner class</dt>

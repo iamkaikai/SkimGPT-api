@@ -1,5 +1,5 @@
 require('dotenv').config();
-const fetchAndParseURL = require('./parser');
+const fetchAndParseURL = require('../parser');
 const { Configuration, OpenAIApi } = require("openai");
 const fs = require('fs');
 const axios = require('axios');

@@ -1,29 +1,29 @@
 {
-    “general”: {
-        "title": "",
-        "num_sections": 3,
-        "overview": "",
-        "result_html": ""
+    "general": {
+        "title": "",
+        "num_sections": 3,
+        "overview": "",
+        "result_html": ""
     },
-    "section1":{
-        "id": 1,
-        "length": 50,
-        "title": "",
-        "overview":"",
-        "content":""
-    },
-    "section2":{
-        "id": 1,
-        "length": 50,
-        "title": "",
-        "overview":"",
-        "content":""
-    },
-    "section3":{
-        "id": 1,
-        "length": 50,
-        "title": "",
-        "overview":"",
-        "content":""
-    }
+    "section1":{
+        "id": 1,
+        "length": 50,
+        "title": "",
+        "overview":"",
+        "content":""
+    },
+    "section2":{
+        "id": 1,
+        "length": 50,
+        "title": "",
+        "overview":"",
+        "content":""
+    },
+    "section3":{
+        "id": 1,
+        "length": 50,
+        "title": "",
+        "overview":"",
+        "content":""
+    }
 }

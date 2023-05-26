@@ -68,11 +68,19 @@ const summarize = async (title, content, index) => {
             console.log("part " + index + "\n" + result_temp + "\n");
             
             
+            // locate title and overview+highlights in result_temp
+            const titleStartIndex = result_temp.indexOf(":") + 2;  // Start after the colon and space
+            const titleEndIndex = result_temp.indexOf("\n", titleStartIndex);
+            const section_title = result_temp.substring(titleStartIndex, titleEndIndex).trim();
+
+            const overviewIndex = result_temp.indexOf("Overview:");
+            const section_overview = result_temp.substring(overviewIndex).trim();
+
             frontendJson[`section${index + 1}`] = {
                 "id": index + 1,
                 "length": result_temp_len,
-                "title": title,
-                "overview": result_temp,
+                "title": section_title, // title
+                "overview": section_overview, // result_temp
                 "content": content
             };
             
@@ -112,7 +120,7 @@ const final_sum = async (content) => {
                     { role: "user", content: principle},
                     { role: "assistant", content: "Understand, what format do you expect?" },
                     { role: "user", content: "summary the input and make it easy to read." },
-                    { role: "assistant", content: "Sure, please provdie the content" },
+                    { role: "assistant", content: "Sure, please provide the content" },
                     { role: "user", content: String(content)}
                 ]
             });
@@ -134,7 +142,7 @@ async function main(){
     const token_len = encode(String(sections)).length
 
     console.log("Input length = " + token_len + "/4096");
-    console.log("Total paragraphs = " + sections.length);
+    console.log("Total paragraphs = " + (sections.length - 1));
 
     let num_sections = sections.length;
     let title = sections[0];

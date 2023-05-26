@@ -8,7 +8,7 @@
 ----
 
 
-<section id=section1>Web services</section>
+<section id=section1><a href="#reader-view1">Web services</a></section>
  So far we've been dealing with the world as it exists on our individual computers. But a lot of exciting problems arise in the context of having multiple machines work together on something. We'll get a taste of such approaches in the upcoming week, starting today with the basic question of how to obtain and process data from web servers. Our goal is to build a simple query interface for Flickr; we'll cover how to send and process queries, and how to use a graphical user interface (GUI) to provide a somewhat nicer interface than we have seen.
 ----
 
@@ -23,7 +23,7 @@ We'll be using a number of different Java packages to help out. As usual, Oracle
 ----
 
 
-<section id=section2>Outline</section>
+<section id=section2><a href="#reader-view2">Outline</a></section>
 
 ----
 
@@ -77,7 +77,7 @@ Slides from class (Section 2 - TJP)
 ----
 
 
-<section id=section3>Graphical user interface</section>
+<section id=section3><a href="#reader-view3">Graphical user interface</a></section>
 
 ----
 
@@ -212,7 +212,7 @@ The key thing we have to account for with multiple components is how to lay them
 ----
 
 
-<section id=section4>Getting stuff from the web</section>
+<section id=section4><a href="#reader-view4">Getting stuff from the web</a></section>
 
 ----
 
@@ -338,7 +338,7 @@ An exception-handling version of our previous buck-passing program: WWWGetTry.ja
 ----
 
 
-<section id=section5>Web services</section>
+<section id=section5><a href="#reader-view5">Web services</a></section>
 
 ----
 
@@ -374,7 +374,7 @@ URL url = new URL("http://cs.dartmouth.edu/~albertoq/cs10/hello.php?name="
 ----
 
 
-<section id=section6>Processing XML</section>
+<section id=section6><a href="#reader-view6">Processing XML</a></section>
 
 ----
 
@@ -464,7 +464,7 @@ The code: ProcessXML.java. Save flickr-dart.xml in a folder called "inputs". We 
 ----
 
 
-<section id=section7>The finished product</section>
+<section id=section7><a href="#reader-view7">The finished product</a></section>
 
 ----
 
@@ -497,7 +497,7 @@ We form the image URLs using the technique we already discussed; the "z" at the 
 ----
 
 
-<section id=section8>Java notes</section>
+<section id=section8><a href="#reader-view8">Java notes</a></section>
 
 ----
 

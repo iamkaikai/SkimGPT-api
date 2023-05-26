@@ -37,7 +37,6 @@ async function fetchAndParseURL(URL) {
                     regex_txt = new RegExp('\\b' + keyword + '\\b', 'g');
                     anchor = '<a href="#reader-view' + i + '">' + keyword + '</a>';
                     result_text_lines[target_line] = result_text_lines[target_line].replace(regex_txt, '\n----\n\n\n' + '<section id=section' + i + '>' + anchor + '</section>\n');
-                    console.log(result_text_lines[target_line])
                     section_anchors.push(element);
                     i++;
                 }else{

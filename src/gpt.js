@@ -12,6 +12,8 @@ const path = require('path');
 const URL = 'https://www.cs.dartmouth.edu/~albertoq/cs10/notes21.html';
 // const URL = 'https://www.cnn.com/2023/05/19/politics/biden-japan-visit-china-reaction/index.html';
 let history = [];
+
+// TODO: CHANGE THIS TO SCHEMA FROM MONGOOSE!!!!
 let frontendJson = {
     "general": {
         "title": null,
@@ -137,8 +139,9 @@ const final_sum = async (content) => {
     }
 }
 
-async function main(){
-    let [sections, result_html] = await fetchAndParseURL(URL);
+// export const main = async () => {
+async function main(page_url) {
+    let [sections, result_html] = await fetchAndParseURL(page_url);
     const token_len = encode(String(sections)).length
 
     console.log("Input length = " + token_len + "/4096");
@@ -172,4 +175,5 @@ async function main(){
     });
 }
 
-main();
+main(URL);
+// export default main;

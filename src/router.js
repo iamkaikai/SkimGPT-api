@@ -29,4 +29,15 @@ router.route('/summarizer/:id')
     }
 });
 
+// get overview string 
+router.route('/summarizer/overview')
+.get(async (req, res) => {
+    try {
+        const result = await Summarizer.getOverview();
+        res.json(result);
+    } catch (error) {
+        res.status(404).json({ error });
+    }
+});
+
 export default router;

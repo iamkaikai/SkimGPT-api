@@ -29,11 +29,11 @@ export async function getOverview(id) {
     }
 }
 
-/*
-
-Controllers 
-
-- get overview 
-	- return just the summary section 
-
-*/
+export async function getOverview() {
+    try {
+        const overview = await SummarizerModel.overview
+        return overview;
+    } catch (error) {
+        throw new Error(`get overview error: ${error}`);
+    }
+}

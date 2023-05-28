@@ -1,6 +1,6 @@
 /* eslint-disable no-promise-executor-return */
 /* eslint-disable no-await-in-loop */
-import fs from 'fs';
+// import fs from 'fs';
 import { encode } from 'gpt-3-encoder';
 import { Configuration, OpenAIApi } from 'openai';
 import SummarizerModel from './models/summarizer_model';
@@ -149,10 +149,10 @@ export const main = async (pageUrl) => {
   console.log(history);
   const result = await finalSum(history);
 
-  const finalSummary = `${history}\n-------------------------\n${result}`;
-  fs.writeFile('./output/summary.txt', finalSummary, (err) => {
-    if (err) throw err;
-  });
+  // const finalSummary = `${history}\n-------------------------\n${result}`;
+  // fs.writeFile('./output/summary.txt', finalSummary, (err) => {
+  //   if (err) throw err;
+  // });
 
   summarizer.general.resultHtml = resultHtml;
   summarizer.general.overview = result;

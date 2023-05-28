@@ -3,8 +3,10 @@ import gptCall from '../gpt';
 
 export async function createSummarizer(initInfo) {
   try {
-    let foundSum = await SummarizerModel.find({ general: { url: initInfo.url } });
-    if (foundSum.length > 0) {
+    console.log('inside create summarizer');
+    let foundSum = await SummarizerModel.findOne({ general: { url: initInfo.url } }).exec();
+    console.log(foundSum);
+    if (foundSum) {
       return foundSum;
     }
 
@@ -17,12 +19,10 @@ export async function createSummarizer(initInfo) {
 
 export async function getSummarizer(initInfo) {
   try {
-    const sum = await SummarizerModel.find({ general: { url: initInfo.url } });
-    if (sum.length > 0) {
-      return sum;
-    } else {
-      throw new Error('summarizer not found');
-    }
+    console.log('inside get summarizer');
+    const sum = await SummarizerModel.findOne({ general: { url: initInfo.url } }).exec();
+    console.log(sum);
+    return sum;
   } catch (error) {
     throw new Error(`get summarizer error: ${error}`);
   }

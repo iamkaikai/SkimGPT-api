@@ -28,10 +28,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // To parse the incoming requests with JSON payloads
 
 // additional init stuff should go before hitting the routing
+app.use('/api', apiRoutes);
 
 // default index route
 app.get('/', (req, res) => {
-  res.send('hi');
+  res.send('hello! this is skimgpt\'s api');
 });
 
 // START THE SERVER
@@ -39,7 +40,7 @@ app.get('/', (req, res) => {
 async function startServer() {
   try {
     // connect DB
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/platform_db';
+    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/skimgpt_api';
     await mongoose.connect(mongoURI);
     console.log(`Mongoose connected to: ${mongoURI}`);
 

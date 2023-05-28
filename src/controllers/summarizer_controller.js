@@ -3,7 +3,7 @@ import gptCall from '../gpt';
 
 export async function createSummarizer(initInfo) {
   try {
-    let foundSum = await SummarizerModel.find({ url: initInfo.url });
+    let foundSum = await SummarizerModel.find({ general: { url: initInfo.url } });
     if (foundSum.length > 0) {
       return foundSum;
     }
@@ -17,7 +17,7 @@ export async function createSummarizer(initInfo) {
 
 export async function getSummarizer(initInfo) {
   try {
-    const sum = await SummarizerModel.find({ url: initInfo.url });
+    const sum = await SummarizerModel.find({ general: { url: initInfo.url } });
     if (sum.length > 0) {
       return sum;
     } else {

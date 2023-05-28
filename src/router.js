@@ -17,6 +17,15 @@ router.route('/summarizer')
     } catch (error) {
       return res.status(404).json({ error });
     }
+  })
+  .get(async (req, res) => {
+    const initInfo = req.body;
+    try {
+      const result = await Summarizer.getSummarizer(initInfo);
+      return res.json(result);
+    } catch (error) {
+      return res.status(404).json({ error });
+    }
   });
 
 // section routes
@@ -41,5 +50,6 @@ router.route('/overview')
       return res.status(404).json({ error });
     }
   });
+// add url identifier for overview
 
 export default router;

@@ -1,43 +1,42 @@
 import { Router } from 'express';
-import * as Summarizer from '../controllers/summarizer.controller';
+import * as Summarizer from './controllers/summarizer_controller';
 
 const router = Router();
 
 router.get('/', (req, res) => {
-    res.json({ message: 'welcome to our skimgpt api!' });
+  return res.json({ message: 'welcome to our skimgpt api!' });
 });
 
 // summarizer routes
 router.route('/summarizer')
-.get(async (req, res) => {
+  .post(async (req, res) => {
+    const initInfo = req.body;
     try {
-        const result = await Summarizer.createSummarizer(req.body);
-        res.json(result);
+      const result = await Summarizer.createSummarizer(initInfo);
+      return res.json(result);
     } catch (error) {
-        res.status(404).json({ error });
+      return res.status(404).json({ error });
     }
-});
+  })
+  .get(async (req, res) => {
+    try {
+      console.log('inside get');
+      const result = await Summarizer.getOverview();
+      return res.json(result);
+    } catch (error) {
+      return res.status(404).json({ error });
+    }
+  });
 
 // section routes
 router.route('/summarizer/:id')
-.get(async (req, res) => {
+  .get(async (req, res) => {
     try {
-        const result = await Summarizer.getSection(req.params.id);
-        res.json(result);
+      const result = await Summarizer.getSection(req.params.id);
+      return res.json(result);
     } catch (error) {
-        res.status(404).json({ error });
+      return res.status(404).json({ error });
     }
-});
-
-// get overview string 
-router.route('/summarizer/overview')
-.get(async (req, res) => {
-    try {
-        const result = await Summarizer.getOverview();
-        res.json(result);
-    } catch (error) {
-        res.status(404).json({ error });
-    }
-});
+  });
 
 export default router;

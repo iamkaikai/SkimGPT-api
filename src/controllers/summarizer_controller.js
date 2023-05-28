@@ -14,7 +14,16 @@ export async function createSummarizer(initInfo) {
 
 export async function getSection(id) {
   try {
-    const section = await SummarizerModel.sections.findById(id);
+    const sum = await SummarizerModel.find();
+    const { sections } = sum[0];
+    let section = {};
+
+    for (let i = 0; i < sections.length; i += 1) {
+      if (String(sections[i].id) === String(id)) {
+        section = sections[i];
+        break;
+      }
+    }
     return section;
   } catch (error) {
     throw new Error(`get section error: ${error}`);

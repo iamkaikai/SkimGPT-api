@@ -1,222 +1,237 @@
 
-Title: Web Services
+Title: Using Java Packages for Problem Solving
 
-Overview: This section discusses the concept of web services and their role in modern software development.
+Overview: 
 
-Highlights:
-- Definition of web services
-- Types of web services (SOAP and REST)
-- How web services work
-- Advantages of using web services
-- Examples of web services in different industries
-
-
-Title: Getting Stuff from the Web - A Guide for CS 10 Students
-
-Overview: This section of the CS 10 curriculum provides students with the necessary skills and knowledge to access and retrieve information from the web, a crucial aspect of problem-solving.
+The article discusses the use of different Java packages for problem solving in programming and highlights useful resources to aid learning. 
 
 Highlights:
 
-- Understanding the basics of HTTP and URLs
-- Learning how to use web browsers and search engines
-- Differentiating between reliable and unreliable sources
-- Navigating and evaluating online resources
-- Using specialized search techniques to find specific information
-- Adhering to ethical and legal guidelines when using online information.
+- Utilizing Oracle's detailed Java reference to guide programming work 
+- Accessing relevant Java tutorials for practical learning and application 
+- Recognizing the usefulness of supplementary material as a reference source
 
 
-Title: Java Packages and References for CS 10 Problem Solving
+Title: Web Services and Query Interface for Flickr
 
-Overview: This section provides an overview of the Java packages used in CS10 Problem Solving and lists the Oracle Java reference materials and supplementary tutorials.
-
-- CS10 Problem solving relies on multiple Java packages.
-- Oracle Java tutorials are available for free.
-- The tutorials serve as guidelines for beginners. 
-- Oracle's Java reference materials serve as a valuable resource for experienced programmers.
-- The tutorials cover more than required for CS10 Problem solving and are supplementary materials. 
-- Relevant Java tutorial links can be found in the provided menu.
-
-
-Title: Graphical User Interface (GUI) in CS 10
-
-Overview: This section discusses the importance of Graphical User Interface (GUI) in Computer Science 10 (CS 10) and how it helps in solving problems.
-
-- GUI makes it easier to interact with complex computer programs and applications
-- Allows users to access and manipulate data and information
-- Provides a visual representation of different functions and features
-- GUI helps in simplifying the user's experience and makes it more user-friendly
-- The importance of GUI in CS 10 cannot be overstated, as it provides valuable tools and resources for problem-solving and programming.
-
-
-Sure, here is a suggested title, overview, and highlights for the provided paragraph:
-
-Title: CS 10 Problem Solving: A Comprehensive Outline
-
-Overview: The following outline highlights the key components of the CS 10 Problem Solving course.
+Overview: 
+This section discusses how to obtain and process data from web servers such as Flickr. We will cover how to fully build a simple query interface that implements a GUI allowing for a more visually pleasing interface.
 
 Highlights:
-- Section 2 provides an outline of the course materials
-- Students will learn how to use computational tools and algorithms to solve practical problems
-- Key topics covered in the course include control structures, lists and loops, event-driven programming, and debugging
-- Students will be expected to complete weekly assignments and a final project
-- The course also includes opportunities for collaboration and peer-to-peer learning through group projects and discussions
+- Introduction to web servers and networks of machines
+- Processing data across multiple machines
+- Building a query interface for Flickr
+- How to send and process queries
+- Building a graphical user interface (GUI) to provide a nicer interface
 
 
-Title: Introduction to Web Services and Obtaining/Processing Data from Web Servers
+Title: Getting Stuff from the Web 
 
-Overview: In this section, we will be discussing how to obtain and process data from web servers, an important aspect of problem-solving in today's computer world. The focus is on building a simple query interface for Flickr, covering how to send and process queries, and how to use a GUI to improve the interface.
+Overview: This section provides an introduction to retrieving content from the web and the basics of web scraping.
 
 Highlights:
-- Introduction to web services and the importance of obtaining and processing data from web servers
-- Building a simple query interface for Flickr
-- Covering the process of sending and processing queries
-- Use of graphical user interface (GUI) to improve the interface of the query system.
+- Introduction to retrieving content from the web 
+- Understanding the basics of web scraping 
+- Explanation of HTML parsing and elements 
+- Discussion on the use of BeautifulSoup for web scraping 
+- Overview of HTTP requests and client libraries like requests 
+- Examples of web scraping with Python 
+- Best practices for responsible web scraping and potential legal issues.
 
 
-Title: Java Notes for CS 10 Students
+Sure, here you go:
+
+Title: Java Notes for CS 10
+
+Overview: This section provides notes on Java programming for CS 10.
+
+Highlights:
+
+- Java basics, including data types, operators, control structures, and arrays
+- Object-oriented programming concepts in Java, such as classes, objects, inheritance, polymorphism, and interfaces
+- Exception handling in Java
+- Input and output in Java, including file I/O and console I/O
+- Basic GUI programming in Java using Swing components
+
+
+Title: Overview of the Finished Product in Problem Solving
 
 Overview:
-This section provides Java notes for students studying Problem Solving in CS 10. The notes cover important concepts and tips that are helpful in understanding the programming language.
+This section, titled "The Finished Product," provides insight into the final stages of problem-solving. It details how to evaluate and refine solutions to ensure they are effective and meet the desired outcomes. 
 
 Highlights:
-- Java is an object-oriented programming language used in many applications
-- Syntax, data types, and control structures are essential concepts to learn in Java
-- Debugging and testing are important skills to develop for successful Java programming
-- The Java Development Kit (JDK) provides the tools needed to write, compile, and run Java programs
-- Resources and online tutorials are available to further enhance Java learning.
+- Provides a comprehensive understanding of the final stage in problem-solving
+- Offers strategies for carefully evaluating and refining solutions
+- Emphasizes the importance of testing solutions to ensure they are effective and efficient 
+- Discusses the need to continually reflect upon the problem-solving process to identify areas for improvement
+
+
+Title: Graphical User Interface (GUI) 
+
+Overview:
+Graphical User Interface (GUI) refers to the use of interactive and visual components such as input boxes, buttons, and menus to communicate with a computer program. In this section, we will discuss basic concepts of GUI programming, as well as commonly used programming libraries for creating graphical user interfaces in Python.
+
+Highlights:
+- Definition of Graphical User Interface (GUI)
+- Interactive and visual components of GUI
+- Communication with computer programs through GUI programming
+- Basic concepts of GUI programming 
+- Programming libraries for creating graphical user interfaces in Python
+
+
+Title: FlickrSearch.java - Simple Photo Search Tool
+
+Overview: FlickrSearch.java is a tool that allows users to search for photos using simple queries. The application constructs and executes the query to fetch images from URLs in the XML. This efficient and reliable application is easy to use.
+
+Highlights:
+- LoadImages works the same way as ProcessXML.java code
+- Query specifies parameters to the REST query, including textbox input, sort, and result limit of 10
+- Requires an API key for Flickr, which is provided in the class and easy to apply for
+- Forms image URLs using the technique already discussed and stores them in an array using standard Java image mechanism.
 
 
 Title: Inner and Anonymous Classes in Java
-Overview: Inner and anonymous classes are two important concepts in Java programming. Inner classes, which can be defined inside another class, provide direct access to the outer class's variables and methods. Anonymous classes are instances of inner classes without a class name.
- 
-Highlights:
-- Inner classes can be defined inside other classes.
-- Inner classes provide access to outer class variables and methods.
-- Anonymous classes are instances of inner classes without a class name.
-- Anonymous classes can use outer class variables and methods.
-- Inner and anonymous classes can be used to hide information and keep things local.
 
-
-Title: Building a GUI for the FlickrSearchCore
-
-Overview: This article explains how to build a graphical user interface (GUI) for the FlickrSearchCore application using various Java components such as buttons, text fields, and combo boxes. The article also discusses how to set up action events and listeners to respond to user input. 
+Overview: Java allows classes to be defined inside other classes, providing the ability to hide information and keep things local. Inner classes also allow for direct access to the outer class variables and methods. Additionally, anonymous classes can be created without giving them a name, and can use the variables and methods of the outer class.
 
 Highlights:
-- GUI construction is best done using a GUI development environment.
-- A canvas is created to display images.
-- Java provides key and mouse events that are used to represent user input.
-- Anonymous classes are used to define listeners and respond to events.
-- Different layout managers are utilized to organize components on the GUI.
+- Inner classes can be defined inside other classes for information hiding and locality
+- Inner classes have direct access to the outer class variables and methods
+- Anonymous classes can be created without a name, but use the outer class' variables and methods
+- Both inner and anonymous classes are useful for encapsulation and organizing code
 
 
-Title: The Finished Product: Creating Outstanding Problem-Solving Solutions with CS 10
+Title: CS 10 | Problem Solving - Course Overview and Outline
 
-Overview: In this section, you will learn all about creating outstanding problem-solving solutions with CS 10. From start to finish, you'll gain valuable insights into the process of problem-solving with technology and how to create a finished product that exceeds expectations.
-
-Highlights:
-- Understanding the importance of creating a finished product that reflects the problem-solving process
-- Tips for streamlining your problem-solving process and creating an efficient workflow
-- Techniques for bringing your problem-solving solutions to life with CS 10
-- Best practices for testing and refining your finished product to ensure optimal performance
-- Strategies for documenting and presenting your finished product to stakeholders and other interested parties.
-
-
-Title: Processing XML: A Guide to Understanding its Uses and How to Implement XML-based Solutions
-
-Overview: This section delves into the world of XML processing, exploring how to use XML to store and exchange data between applications and enabling efficient data retrieval and analysis. It also provides tips on implementing XML solutions for different types of use cases.
+Overview: This article provides a brief overview of CS 10 - Problem Solving, with a focus on the course outline and key topics.
 
 Highlights:
 
-- Overview of XML and its role in data processing
-- Understanding XML syntax and how to create well-formed XML documents
-- Using XML to store and exchange data between different software applications
-- Implementing XML-based solutions for common use cases, such as web development and data retrieval and analysis
-- Techniques for efficient XML processing, including parsing and serialization
-- Tips for troubleshooting common issues with XML implementation and processing.
+- CS 10 is a course focused on developing problem-solving skills with a focus on computer science.
+- The course is aimed at beginners and those with little to no prior coding experience.
+- Topics covered include programming fundamentals, algorithms, data structures, computer systems, and more.
+- The course is designed to equip students with the skills needed to solve real-world problems using computers.
+- Practical exercises and projects are a key component of the course, allowing students to apply what they learn in a practical setting.
 
 
-Title: Java Tutorials on Graphical User Interface, Web Services, and XML Processing
+Title: Graphical User Interface (GUI) Construction in Java
 
-Overview: This educational material provides tutorials on different Java libraries and techniques, including Swing for Graphical User Interface, IO for retrieving web data, JAXP DOM for processing XML, and web services for exchanging data. Students will also find the finished products of different exercises in this guide and supplementary notes on Java programming.
-
-Highlights:
-
-- Tutorials on Java Swing for creating Graphical User Interface
-- Introduction to Java IO library for retrieving web data 
-- Guidance on web services for exchanging data 
-- Tutorials on using JAXP DOM for XML processing 
-- Examples of finished products from different exercises 
-- Supplementary notes on Java programming and AQL and TJP presented in class.
-
-
-Title: Introduction to RESTful Web Services
-
-Overview: In this piece, we'll be exploring web services and how they differ from web pages. We'll be focusing on RESTful web services, which use a basic mechanism to send and receive information. We'll also be discussing URL parameters and encoding them for use in RESTful web services.
-
-Bullet points of highlights:
-- Web services differ from web pages in that we engage with servers to send parameters and receive results
-- REST (REpresentational State Transfer) is a powerful and common mechanism for creating web services using HTTP
-- URLs can include parameters for sending input values to servers
-- Multiple parameters can be separated by ampersands in URLs
-- The "get" machinery is used for fetching web pages and sending parameter values
-- Parameters must be URL encoded when using RESTful web services
-- The URLEncoder class provides a simple way to encode special characters in URLs.
-
-
-Title: FlickrSearch.java for Photo Search on Flickr
-
-Overview: FlickrSearch.java is a program that constructs and executes a query using REST, which fetches photos from URLs on Flickr. The program uses the textbox input as the value of "text", provides the specified sort as the value of "sort", and limits the results to 10. The image URLs are formed and images fetched using Java's standard image mechanism. 
-
-Highlights:
-- FlickrSearch.java is a program for fetching photos from URLs on Flickr
-- loadImages method functions like the ProcessXML.java code wrapped with additional code to execute and construct the query
-- Query specifies parameters according to Flickr's photo search docs 
-- Final variable contains an API key that is required to run the program
-- Images are formed using the same technique discussed before with "z" at the end indicating the maximum 640 pixels on a side
-- Standard Java image mechanism is used to pull in and store the images in an array
-
-
-Title: Network Programming and HTTP in Java 
-
-Overview: This article discusses network programming in Java and how to transfer information between computers using web-based protocols. It highlights the key component of the web, HTTP (Hypertext Transfer Protocol), and explains how it communicates with web servers. Additionally, it provides an example Java program, WWWGet.java, which retrieves data from a web server, and demonstrates how to handle exceptions when reading from a URL.
-
-Highlights:
-- Network programming is the process of transferring information between computers
-- Computers deal with bits, and network protocols interpret them to transfer information
-- HTTP is the set of rules for how browsers and other agents communicate with web servers
-- The URL, or Uniform Resource Locator, identifies the global identity of a web page
-- Java provides libraries for getting information from a web server
-- The WWWGet.java program retrieves data from a web server using network programming in Java
-- Exception handling is essential when reading data from the web, and the article provides an example in WWWGetTry.java.
-
-
-Title: Interpreting XML for a Flickr-based Photo Search Application
-
-Overview: This article discusses the use of XML as a means to represent and interpret data for a Flickr-based photo search application. It explains how XML encodes data into tags with specific meanings, nested and with attribute values, and how to interpret these tags for specific applications. The article also provides a simple example of using Java's DOM-based XML parsing library to extract photo URLs from an XML file.
+Overview: The article explains how to construct a GUI for a photo browser in Java using different components such as buttons, text field, and combo box. It provides details on how to create an instance of an anonymous class as a subclass of JComponent, handle user input events, and use different layout managers to organize different components.
 
 Highlights:
 
-- XML is a standard way to encode data that programs can interpret, using tags to represent data with specific meanings.
-- Tags can be nested and include attribute values to give additional meaning to the data they represent.
-- XML files need to be interpreted according to the application they're being used for.
-- Flickr provides a simple XML format for photo search queries.
-- Java provides a variety of XML parsing libraries, including DOM for direct representation of nested XML files.
-- The DOM allows for easy searching and navigation of the nested XML tags to extract specific data.
-- The Flickr XML file can be used to extract photo URLs for use in a Flickr photo search application.
+- Construction of a GUI for photo browser using different components 
+- Creation of an instance of an anonymous class as a subclass of JComponent
+- Handling user input events such as mouse events and key events
+- Use of different layout managers to organize different components in the GUI
+- Explanation of different types of events in action and how they connect to the methods
+
+
+Title: Processing XML: How to Handle Your Data
+
+Overview: This section of CS 10 covers the basics of processing XML (Extensible Markup Language) data, including how to parse and manipulate XML files.
+
+Highlights:
+- XML is a widely used format for exchanging data between servers and clients
+- Parsing XML involves analyzing the structure of the data and extracting the relevant information
+- Libraries like ElementTree and BeautifulSoup make it easier to work with XML files in Python
+- Manipulating XML allows programmers to customize the content and metadata of their data
+- Common use cases for XML include web services, APIs, and configuration files.
+
+
+Title: Java Tutorials on Graphical User Interface and Web Services
+
+Overview: This material is a collection of Java tutorials on Graphical User Interface, web services, IO, and JAXP. Students can learn how to create GUI applications using Swing and how to process XML data. They can also get familiar with web services and learn how to fetch data from Flickr through Java applications.
+
+Highlights:
+- Java tutorials on Swing for building Graphical User Interface
+- Java tutorial on IO to learn how to get stuff from the web
+- Learning web services with Java
+- Java tutorials on JAXP to process XML data
+- Code files for implementing the lessons
+- Lesson notes and slides from class
+
+
+Title: Using Basic REST Mechanism for Web Services
+
+Overview: The article discusses the use of REST (Representational State Transfer) mechanism for web services. Unlike web pages, REST engages with the server to deliver specific results correspondent to input parameters. The article demonstrates a greeting program using REST that takes a parameter name and outputs a greeting message. It also discusses the use of encoding classes for output parameters, and the difference in using "get" and "post" methods.
+
+Highlights:
+- REST is a powerful mechanism for exchanging information between server and client
+- REST directly uses the "get" machinery to fetch web pages and output results
+- Multiple input parameters for REST services can be included, separated by ampersands
+- "Post" machinery is another approach for sending data to the server but is more complicated
+- Spaces and special characters in parameter values need to be encoded using classes such as URLEncoder.
+
+
+Title: Handling XML Data in Java
+
+Overview: This article focuses on handling XML data in Java and covers topics such as encoding data in XML format, interpreting XML tags and retrieving data from XML. It also provides a simple example of a Flickr-based photo search application to illustrate the usage of XML data in Java.
+
+Highlights:
+- XML is a standard way of encoding data that can be interpreted by programs.
+- XML wraps data in tags and can include nested tags and name-value attributes.
+- To work with XML, we need to know how to interpret the tags and their relationships to each other.
+- Java provides numerous XML parsing libraries and the document object model (DOM) approach is used here to directly build a document structure mirroring the nested structure in the XML file.
+- The article provides a simple example of a Flickr-based photo search application to illustrate the usage of XML data in Java.
+
+
+Title: Web Services – An Overview
+
+Overview: This section provides an introduction to Web Services, one of the most popular ways of communicating information on the internet. The section covers the basics of Web Services and highlights its most important features.
+
+Highlights:
+- Web Services are a means of communication that allows applications to talk to each other over the internet. 
+- Web Services use standardized protocols such as XML, SOAP, and HTTP to transmit data between different systems.
+- Web Services can be accessed using simple APIs, which allow developers to easily integrate different systems and applications.
+- Web Services can be used for a wide range of applications, including online payment systems, social networking sites, and e-commerce platforms.
+- Web Services are highly scalable and can be easily customized to meet the needs of different applications and systems.
+
+
+Title: Introduction to Network Programming and HTTP Protocol
+
+Overview: This article provides insights into network programming and the HTTP protocol. The article talks about how computers transfer information using bits and how network protocols are designed to handle these bits. The HTTP protocol is discussed as a key component of the web and how it allows browsers to communicate with web servers is explained. The article also includes a sample Java program that demonstrates how to extract content from a web server page and provides a code snippet for exception handling.
+
+Highlights:
+- Network programming involves transferring information between computers using bits
+- Network protocols are designed to handle the transfer of bits and improve reliability 
+- HTTP is a set of rules for how browsers communicate with web servers 
+- The URL provides the global identity of the page you want 
+- Java provides libraries for obtaining content from a web server within a program 
+- A sample Java program is included to demonstrate how to extract content from a web server 
+- The article also provides a code snippet for exception handling
 
 -------------------------
-Title: Understanding Key Concepts in Various CS 10 Topics
+Here's a summary of each article:
 
-Overview: This is a collection of summaries on different CS 10 topics that covers key concepts that students should grasp. It includes topics such as web services, GUI, Java packages, XML processing, and network programming.
+1. "Using Java Packages for Problem Solving": This article discusses various Java packages used for problem-solving in programming, and provides useful resources for learning.
 
-Highlights:
+2. "Web Services and Query Interface for Flickr": This article explains how to obtain and process data from web servers, specifically Flickr, and how to build a simple query interface with a GUI.
 
-- Web services facilitate communication between applications over the web and can be SOAP- or REST-based.
-- GUI enables users to interact with computer programs and provides a visual representation of features.
-- Different Java packages are essential in programming such as the Java Development Kit (JDK).
-- XML processing deals with storing and exchanging data between applications using well-formed XML documents.
-- Network programming is the process of transferring information between computers.
-- Best practices such as testing and refining are essential for successful problem-solving solutions.
-- Important programming concepts to learn include syntax, data types, control structures, and debugging.
-- Students should aim for an efficient workflow that streamlines problem-solving processes.
-- Resources such as online tutorials, Java references, and supplementary materials are available to further enhance Java learning.
+3. "Getting Stuff from the Web": This article provides an introduction to retrieving web content and web scraping, discussing HTML parsing, the use of BeautifulSoup, and web scraping with Python.
+
+4. "Java Notes for CS 10": This article offers notes on Java programming for CS 10, covering Java basics, object-oriented programming concepts, exception handling, input/output, and GUI programming.
+
+5. "Overview of the Finished Product in Problem Solving": This article provides insight into the final stages of problem-solving and discusses strategies for evaluating and refining solutions.
+
+6. "Graphical User Interface (GUI)": This article defines GUI programming and discusses commonly used programming libraries for creating GUIs in Python.
+
+7. "FlickrSearch.java - Simple Photo Search Tool": This article highlights FlickrSearch.java, a tool used to search for photos with a simple query setup and execution process.
+
+8. "Inner and Anonymous Classes in Java": This article explains how Java classes can be defined inside other classes for encapsulation, organization, and direct access to outer class variables and methods.
+
+9. "CS 10 - Problem Solving Course Overview and Outline": This article gives an overview of the CS 10 course, focused on developing problem-solving skills with a computer science perspective.
+
+10. "Graphical User Interface (GUI) Construction in Java": This article discusses constructing a GUI for a photo browser in Java, including creating an instance of an anonymous class, handling user input events, and using layout managers.
+
+11. "Processing XML: How to Handle Your Data": This article covers the basics of processing XML data, including parsing, libraries, manipulating, and common uses for web services, APIs, and config files.
+
+12. "Java Tutorials on Graphical User Interface and Web Services": This article is a collection of Java tutorials on GUI applications, IO, web services, and XML processing.
+
+13. "Using Basic REST Mechanism for Web Services": This article discusses REST mechanism for web services, with examples of a greeting program and encoding classes for output parameters.
+
+14. "Handling XML Data in Java": This article focuses on handling XML data in Java for encoding, interpretation, and retrieval, with a simple example of a Flickr-based photo search application.
+
+15. "Web Services – An Overview": This article introduces web services as a means of communication between applications over the internet, including protocols, APIs, and scalability.
+
+16. "Introduction to Network Programming and HTTP Protocol": This article explains network programming and the HTTP protocol, including rules for communication between browsers and web servers, Java libraries, and example programs.

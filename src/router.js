@@ -17,22 +17,25 @@ router.route('/summarizer')
     } catch (error) {
       return res.status(404).json({ error });
     }
-  })
-  .get(async (req, res) => {
-    try {
-      console.log('inside get');
-      const result = await Summarizer.getOverview();
-      return res.json(result);
-    } catch (error) {
-      return res.status(404).json({ error });
-    }
   });
 
 // section routes
 router.route('/summarizer/:id')
   .get(async (req, res) => {
     try {
+      console.log('inside get section');
       const result = await Summarizer.getSection(req.params.id);
+      return res.json(result);
+    } catch (error) {
+      return res.status(404).json({ error });
+    }
+  });
+
+// get overview route (of all sections)
+router.route('/overview')
+  .get(async (req, res) => {
+    try {
+      const result = await Summarizer.getOverview();
       return res.json(result);
     } catch (error) {
       return res.status(404).json({ error });

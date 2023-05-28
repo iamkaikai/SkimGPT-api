@@ -2,11 +2,14 @@ import SummarizerModel from '../models/summarizer_model';
 import gptCall from '../gpt';
 
 export async function createSummarizer(initInfo) {
-  let summarizer = new SummarizerModel();
   try {
-    console.log(initInfo.url);
-    summarizer = await gptCall(initInfo.url);
-    return summarizer.save();
+    let foundSum = await SummarizerModel.find({ url: initInfo.url });
+    if (foundSum.length > 0) {
+      return foundSum;
+    }
+
+    foundSum = await gptCall(initInfo.url);
+    return foundSum.save();
   } catch (error) {
     throw new Error(`create summarizer error: ${error}`);
   }
@@ -14,8 +17,12 @@ export async function createSummarizer(initInfo) {
 
 export async function getSummarizer(initInfo) {
   try {
-    const sum = await SummarizerModel.find();
-    return sum;
+    const sum = await SummarizerModel.find({ url: initInfo.url });
+    if (sum.length > 0) {
+      return sum;
+    } else {
+      throw new Error('summarizer not found');
+    }
   } catch (error) {
     throw new Error(`get summarizer error: ${error}`);
   }

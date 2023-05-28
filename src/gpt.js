@@ -1,6 +1,5 @@
 /* eslint-disable no-promise-executor-return */
 /* eslint-disable no-await-in-loop */
-// import path from 'path';
 import fs from 'fs';
 import { encode } from 'gpt-3-encoder';
 import { Configuration, OpenAIApi } from 'openai';
@@ -9,23 +8,10 @@ import SummarizerModel from './models/summarizer_model';
 const fetchAndParseURL = require('./parser');
 require('dotenv').config();
 
-// const URL = 'https://github.com/openai/jukebox';
-// const URL = 'https://en.wikipedia.org/wiki/Dartmouth_College';
-// const URL = 'https://www.cs.dartmouth.edu/~albertoq/cs10/notes21.html';
-// const URL = 'https://www.cnn.com/2023/05/19/politics/biden-japan-visit-china-reaction/index.html';
 let history = [];
 
 // create new summarizer model instance
 const summarizer = new SummarizerModel();
-
-const frontendJson = {
-  general: {
-    title: null,
-    num_sections: null,
-    overview: null,
-    resultHtml: null,
-  },
-};
 
 const principle = `   A good summary should be comprehensive, concise, coherent, and independent. These qualities are explained below:
                 A summary must be comprehensive: You should isolate all the important points in the original passage and note them down in a list. Review all the ideas on your list, and include in your summary all the ones that are indispensable to the author's development of her/his thesis or main idea.
@@ -89,14 +75,6 @@ const summarize = async (title, content, index) => {
         content,
       });
 
-      frontendJson[`section${index + 1}`] = {
-        id: index + 1,
-        length: resultTempLen,
-        title: sectionTitle, // title
-        overview: sectionOverview, // resultTemp
-        content,
-      };
-
       success = true;
     } catch (error) {
       console.log(`Request failed. Retrying (${retries - 1} attempts left)...`);
@@ -151,7 +129,6 @@ const finalSum = async (content) => {
 };
 
 export const main = async (pageUrl) => {
-// async function main(pageUrl) {
   const [sections, resultHtml] = await fetchAndParseURL(pageUrl);
   const tokenLen = encode(String(sections)).length;
 
@@ -161,9 +138,9 @@ export const main = async (pageUrl) => {
   const numSections = sections.length;
   const title = sections[0];
 
-  frontendJson.general.title = title;
-  frontendJson.general.num_sections = numSections;
-  frontendJson.general.resultHtml = resultHtml;
+  summarizer.general.title = title;
+  summarizer.general.num_sections = numSections;
+  summarizer.general.url = pageUrl;
 
   const resultPromises = sections.slice(1).map((section, index) => { return summarize(title, section, index); });
   await Promise.all(resultPromises);
@@ -172,28 +149,15 @@ export const main = async (pageUrl) => {
   console.log(history);
   const result = await finalSum(history);
 
-  frontendJson.general.overview = result;
-
   const finalSummary = `${history}\n-------------------------\n${result}`;
   fs.writeFile('./output/summary.txt', finalSummary, (err) => {
     if (err) throw err;
   });
 
-  const frontendJsonStr = JSON.stringify(frontendJson);
-
-  fs.writeFile('frontend.json', frontendJsonStr, (err) => {
-    if (err) throw err;
-    console.log('frontend.json file has been saved.');
-  });
-
-  summarizer.general.title = title;
-  summarizer.general.num_sections = numSections;
-  summarizer.general.url = pageUrl;
   summarizer.general.resultHtml = resultHtml;
   summarizer.general.overview = result;
 
   return summarizer;
 };
 
-// main(URL);
 export default main;

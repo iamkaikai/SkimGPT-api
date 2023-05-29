@@ -5,13 +5,13 @@ export async function createSummarizer(initInfo) {
   try {
     console.log('inside create summarizer');
     let foundSum = await SummarizerModel.findOne({ general: { url: initInfo.url } }).exec();
-    console.log(foundSum);
     if (foundSum) {
       return foundSum;
     }
-
-    foundSum = await gptCall(initInfo.url);
-    return foundSum.save();
+    const gptData = await gptCall(initInfo.url);
+    foundSum = new SummarizerModel(gptData);
+    await foundSum.save();
+    return foundSum;
   } catch (error) {
     throw new Error(`create summarizer error: ${error}`);
   }

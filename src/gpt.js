@@ -149,11 +149,6 @@ export const main = async (pageUrl) => {
   console.log(history);
   const result = await finalSum(history);
 
-  // const finalSummary = `${history}\n-------------------------\n${result}`;
-  // fs.writeFile('./output/summary.txt', finalSummary, (err) => {
-  //   if (err) throw err;
-  // });
-
   summarizer.general.resultHtml = resultHtml;
   summarizer.general.overview = result;
 

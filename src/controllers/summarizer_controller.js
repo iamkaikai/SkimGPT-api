@@ -19,9 +19,7 @@ export async function createSummarizer(initInfo) {
 
 export async function getSummarizer(initInfo) {
   try {
-    console.log('inside get summarizer');
-    const sum = await SummarizerModel.findOne({ general: { url: initInfo.url } }).exec();
-    console.log(sum);
+    const sum = await SummarizerModel.find();
     return sum;
   } catch (error) {
     throw new Error(`get summarizer error: ${error}`);

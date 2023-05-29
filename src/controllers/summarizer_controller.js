@@ -4,7 +4,7 @@ import gptCall from '../gpt';
 export async function createSummarizer(initInfo) {
   try {
     console.log('inside create summarizer');
-    let foundSum = await SummarizerModel.findOne({ general: { url: initInfo.url } }).exec();
+    let foundSum = await SummarizerModel.findOne({ 'general.url': initInfo.url }).exec();
     if (foundSum) {
       return foundSum;
     }
@@ -24,7 +24,8 @@ export async function getSummarizer(initInfo) {
     console.log(sum);
     return sum;
   } catch (error) {
-    throw new Error(`get summarizer error: ${error}`);
+    // throw new Error(`get summarizer error: ${error}`);
+    return (`"Error details: ", ${error}`);
   }
 }
 

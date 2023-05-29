@@ -2,17 +2,20 @@ import SummarizerModel from '../models/summarizer_model';
 import gptCall from '../gpt';
 
 export async function createSummarizer(initInfo) {
-  let summarizer = new SummarizerModel();
   try {
     console.log(initInfo.url);
-    summarizer = await gptCall(initInfo.url);
+    const existingSum = await SummarizerModel.findOne({ 'general.url': initInfo.url });
+    if (existingSum) {
+      return existingSum;
+    }
+    const summarizer = await gptCall(initInfo.url);
     return summarizer.save();
   } catch (error) {
     throw new Error(`create summarizer error: ${error}`);
   }
 }
 
-export async function getSummarizer(initInfo) {
+export async function getSummarizers() {
   try {
     const sum = await SummarizerModel.find();
     return sum;
@@ -21,15 +24,19 @@ export async function getSummarizer(initInfo) {
   }
 }
 
-export async function getSection(id) {
+export async function getSection(body) {
   try {
-    const sum = await SummarizerModel.find();
-    const { sections } = sum[0];
+    const { url } = body;
+    const { sectionId } = body;
+    console.log(url);
+    const sum = await SummarizerModel.findOne({ 'general.url': url });
+    const { sections } = sum;
     let section = {};
+    console.log(sectionId);
 
     for (let i = 0; i < sections.length; i += 1) {
-      if (String(sections[i].id) === String(id + 1)) {
-        section = sections[i + 1];
+      if (String(sections[i].id) === String(sectionId)) {
+        section = sections[i];
         break;
       }
     }

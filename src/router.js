@@ -15,7 +15,8 @@ router.route('/summarizer')
       const result = await Summarizer.createSummarizer(initInfo);
       return res.json(result);
     } catch (error) {
-      return res.status(404).json({ error });
+      console.log('summarizer post error!');
+      return res.status(403).json({ error });
     }
   })
   .get(async (req, res) => {

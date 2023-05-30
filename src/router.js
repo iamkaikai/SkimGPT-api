@@ -22,7 +22,7 @@ router.route('/summarizers')
     const initInfo = req.body;
     try {
       const result = await Summarizer.getSummarizer(initInfo);
-      return res.json(result);
+      return res.json({result});
     } catch (error) {
       return res.status(404).json({ error });
     }

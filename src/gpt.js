@@ -74,11 +74,12 @@ const summarize = async (title, content, index) => {
         overview: sectionOverview,
         content,
       });
+      summarizer.save();
 
       success = true;
     } catch (error) {
       console.log(`Request failed. Retrying (${retries - 1} attempts left)...`);
-      await new Promise((res) => { return setTimeout(res, 2000); }); // Wait 2s before retrying
+      await new Promise((res) => { return setTimeout(res, 2000); }); // Wait 3s before retrying
       retries -= 1;
     }
   }
@@ -141,20 +142,19 @@ export const main = async (pageUrl) => {
   summarizer.general.title = title;
   summarizer.general.num_sections = numSections;
   summarizer.general.url = pageUrl;
+  summarizer.general.result_html = resultHtml;
 
-  const resultPromises = sections.slice(1).map((section, index) => { return summarize(title, section, index); });
+  summarizer.save();
+
+  const resultPromises = sections.slice(1).map((section, index) => {
+    return summarize(title, section, index);
+  });
   await Promise.all(resultPromises);
 
   history = history.join('\n');
   console.log(history);
   const result = await finalSum(history);
 
-  // const finalSummary = `${history}\n-------------------------\n${result}`;
-  // fs.writeFile('./output/summary.txt', finalSummary, (err) => {
-  //   if (err) throw err;
-  // });
-
-  summarizer.general.resultHtml = resultHtml;
   summarizer.general.overview = result;
 
   return summarizer;

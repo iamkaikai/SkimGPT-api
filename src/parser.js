@@ -62,10 +62,7 @@ async function fetchAndParseURL(URL) {
       });
 
       resultHTML = newResultHTML;
-
       resultText = resultTextLines.join('\n');
-      // save(resultText, './output/parser.txt');
-      // save(resultHTML, './output/parser.html');
 
       // process the bad format
       sections = resultText.split('----');
@@ -78,11 +75,5 @@ async function fetchAndParseURL(URL) {
   }
   return [sections, resultHTML];
 }
-
-// function save(result, outDir) {
-//   fs.writeFile(outDir, result, (err) => {
-//     if (err) throw err;
-//   });
-// }
 
 module.exports = fetchAndParseURL;

@@ -4,7 +4,7 @@ SkimGPT is a Chrome extension built to help the users efficiently digest online 
 
 This repo stores our database for articles that have been summariezed, and the API that allows users to interact with the database, to query for articles, and to generate summaries of new articles. We also clean the text of the articles and produce a clean version of the article for readers to digest more easily.
 
-[screenshot](/img/api_screenshot.png)
+![screenshot](/img/api_screenshot.png)
 
 ## Architecture
 

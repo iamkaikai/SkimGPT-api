@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import * as Summarizer from './controllers/summarizer_controller';
-
 const router = Router();
 
 router.get('/', (req, res) => {

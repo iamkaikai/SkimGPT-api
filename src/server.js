@@ -10,6 +10,10 @@ const app = express();
 
 // enable/disable cross origin resource sharing if necessary
 app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 // enable/disable http request logging
 app.use(morgan('dev'));

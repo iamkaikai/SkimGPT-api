@@ -18,11 +18,12 @@ router.route('/summarizers')
     }
   })
   .get(async (req, res) => {
-    const initInfo = req.params;
+    const initInfo = req.query;
     const encodedURL = initInfo.url;
     const decodedURL = decodeURIComponent(encodedURL);
+    console.log(decodedURL);
     try {
-      const result = await Summarizer.getSummarizer(initInfo);
+      const result = await Summarizer.getSummarizer(decodedURL);
       return res.json(result);
     } catch (error) {
       return res.status(404).json({ error });

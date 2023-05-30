@@ -19,7 +19,9 @@ router.route('/summarizers')
     }
   })
   .get(async (req, res) => {
-    const initInfo = req.body;
+    const initInfo = req.params;
+    encodedURL = initInfo.url;
+    decodedURL = decodeURIComponent(encodedURL);
     try {
       const result = await Summarizer.getSummarizer(initInfo);
       return res.json(result);

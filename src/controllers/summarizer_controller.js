@@ -1,14 +1,14 @@
 import SummarizerModel from '../models/summarizer_model';
 import gptCall from '../gpt';
 
-export async function createSummarizer(initInfo) {
+export async function createSummarizer(url) {
   try {
-    console.log(initInfo.url);
-    const existingSum = await SummarizerModel.findOne({ 'general.url': initInfo.url });
+    console.log(url);
+    const existingSum = await SummarizerModel.findOne({ 'general.url': url });
     if (existingSum) {
       return existingSum;
     }
-    const summarizer = await gptCall(initInfo.url);
+    const summarizer = await gptCall(url);
     summarizer.save();
     return summarizer;
   } catch (error) {

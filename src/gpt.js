@@ -142,7 +142,7 @@ export const main = async (pageUrl) => {
   summarizer.general.title = title;
   summarizer.general.num_sections = numSections;
   summarizer.general.url = pageUrl;
-  summarizer.general.resultHtml = resultHtml;
+  summarizer.general.result_html = resultHtml;
 
   summarizer.save();
 

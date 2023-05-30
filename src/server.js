@@ -1,12 +1,22 @@
+import socketio from 'socket.io';
+import http from 'http';
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import apiRoutes from './router';
+import * as Summaries from './controllers/summarizer_controller';
 
 // initialize
 const app = express();
+const server = http.createServer(app);
+const io = socketio(server, {
+  cors: {
+    origin: '*', // allows requests all incoming connections
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  },
+});
 
 // enable/disable cross origin resource sharing if necessary
 app.use(cors());
@@ -45,7 +55,7 @@ async function startServer() {
     console.log(`Mongoose connected to: ${mongoURI}`);
 
     const port = process.env.PORT || 9090;
-    app.listen(port);
+    server.listen(port);
 
     console.log(`Listening on port ${port}`);
   } catch (error) {
@@ -54,3 +64,19 @@ async function startServer() {
 }
 
 startServer();
+
+// socket.io stuff
+io.on('connection', (socket) => {
+  // on first connection say hi to client
+  socket.emit('hello', 'hey client');
+
+  // initial call to create summary based on url and send back to client
+  socket.on('createSummary', (fields) => {
+    Summaries.createSummarizer(fields).then((result) => {
+      socket.emit('summary', result);
+    }).catch((error) => {
+      console.log(error);
+      socket.emit('error', 'create failed');
+    });
+  });
+});

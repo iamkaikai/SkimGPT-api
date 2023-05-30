@@ -8,14 +8,13 @@ router.get('/', (req, res) => {
 });
 
 // summarizer routes
-router.route('/summarizer')
+router.route('/summarizers')
   .post(async (req, res) => {
     const initInfo = req.body;
     try {
-      const result = await Summarizer.createSummarizer(initInfo);
-      return res.json(result);
+      Summarizer.createSummarizer(initInfo);
+      return res.json(`get ${initInfo.url}`);
     } catch (error) {
-      console.log('summarizer post error!');
       return res.status(403).json({ error });
     }
   })
@@ -28,29 +27,5 @@ router.route('/summarizer')
       return res.status(404).json({ error });
     }
   });
-
-// section routes
-router.route('/summarizer/:id')
-  .get(async (req, res) => {
-    try {
-      console.log('inside get section');
-      const result = await Summarizer.getSection(req.params.id);
-      return res.json(result);
-    } catch (error) {
-      return res.status(404).json({ error });
-    }
-  });
-
-// get overview route (of all sections)
-router.route('/overview')
-  .get(async (req, res) => {
-    try {
-      const result = await Summarizer.getOverview();
-      return res.json(result);
-    } catch (error) {
-      return res.status(404).json({ error });
-    }
-  });
-// add url identifier for overview
 
 export default router;

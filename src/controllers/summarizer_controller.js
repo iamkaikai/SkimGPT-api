@@ -3,15 +3,13 @@ import gptCall from '../gpt';
 
 export async function createSummarizer(initInfo) {
   try {
-    console.log('inside create summarizer');
-    let foundSum = await SummarizerModel.findOne({ 'general.url': initInfo.url }).exec();
-    if (foundSum) {
-      return foundSum;
+    console.log(initInfo.url);
+    const existingSum = await SummarizerModel.findOne({ 'general.url': initInfo.url });
+    if (existingSum) {
+      return existingSum;
     }
-    const gptData = await gptCall(initInfo.url);
-    foundSum = new SummarizerModel(gptData);
-    await foundSum.save();
-    return foundSum;
+    const summarizer = await gptCall(initInfo.url);
+    return summarizer.save();
   } catch (error) {
     throw new Error(`create summarizer error: ${error}`);
   }
@@ -20,24 +18,27 @@ export async function createSummarizer(initInfo) {
 export async function getSummarizer(initInfo) {
   try {
     console.log('inside get summarizer');
-    const sum = await SummarizerModel.findOne({ general: { url: initInfo.url } }).exec();
-    console.log(sum);
+    const sum = await SummarizerModel.findOne({ 'general.url': initInfo.url }).exec();
     return sum;
   } catch (error) {
-    // throw new Error(`get summarizer error: ${error}`);
-    return (`"Error details: ", ${error}`);
+    throw new Error(`get summarizer error: ${error}`);
   }
 }
 
-export async function getSection(id) {
+export async function getSection(body) {
   try {
-    const sum = await SummarizerModel.find();
-    const { sections } = sum[0];
+    const { url } = body;
+    const { sectionId } = body;
+
+    const sum = await SummarizerModel.findOne({ 'general.url': url });
+    const { sections } = sum;
     let section = {};
+    console.log('----------');
 
     for (let i = 0; i < sections.length; i += 1) {
-      if (String(sections[i].id) === String(id + 1)) {
-        section = sections[i + 1];
+      if (String(sections[i].id) === String(sectionId)) {
+        section = sections[i];
+        console.log(section);
         break;
       }
     }

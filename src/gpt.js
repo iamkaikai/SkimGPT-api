@@ -57,9 +57,9 @@ const summarize = async (title, content, index) => {
         messages: [
           { role: 'system', content: 'You are a helpful assistant' },
           { role: 'user', content: 'conclude the material while preserving as many particulars and information as feasible.' },
-          { role: 'assistant', content: 'Sure, please provdie the content' },
-          { role: 'user', content: ` the title of the content is:\n${title}\nthe following is one of the paragraphs` },
-          { role: 'user', content: ` give me a title, a short overview and a list bullet points for the highlights:\n${content}. if the content is less than 50 words, just provide a paragraph` },
+          { role: 'assistant', content: 'Sure, please provide the content' },
+          { role: 'user', content: ` the title of the content is:\n${title}\nI will provide you with one of the sections` },
+          { role: 'user', content: ` Provide me a title for the section, a short overview and a list of bullet points for the highlights. Follow this structure precisely:\nTitle: [TITLE GOES HERE]\nOverview: [OVERVIEW GOES HERE]\nHighlights: [BULLET POINTS FOR THE HIGHLIGHTS GO HERE]\nFor the overview, if the text is less than 50 words, just provide a paragraph.\nHere is the section:\n${content}. if the text is less than 50 words, just provide a paragraph` },
         ],
       });
       success = true;

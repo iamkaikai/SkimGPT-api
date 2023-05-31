@@ -25,36 +25,3 @@ export async function getSummarizer(url) {
     throw new Error(`get summarizer error: ${error}`);
   }
 }
-
-export async function getSection(body) {
-  try {
-    const { url } = body;
-    const { sectionId } = body;
-
-    const sum = await SummarizerModel.findOne({ 'general.url': url });
-    const { sections } = sum;
-    let section = {};
-    console.log('----------');
-
-    for (let i = 0; i < sections.length; i += 1) {
-      if (String(sections[i].id) === String(sectionId)) {
-        section = sections[i];
-        console.log(section);
-        break;
-      }
-    }
-    return section;
-  } catch (error) {
-    throw new Error(`get section error: ${error}`);
-  }
-}
-
-export async function getOverview() {
-  try {
-    const sum = await SummarizerModel.find();
-    const { overview } = sum[1].general;
-    return overview;
-  } catch (error) {
-    throw new Error(`get overview error: ${error}`);
-  }
-}

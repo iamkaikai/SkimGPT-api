@@ -9,8 +9,10 @@ const fetchAndParseURL = require('./parser');
 require('dotenv').config();
 
 let history = [];
-let tones = {lighthearted: 'lighthearted and cheerful',
-agressive: 'agressive and confrontational'}
+const tones = {
+  lighthearted: 'lighthearted and cheerful',
+  agressive: 'agressive and confrontational',
+};
 
 // create new retoner model instance
 const retoner = new RetoneModel();
@@ -38,7 +40,7 @@ const retone = async (title, content, index, tone) => {
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system', content: 'You are a helpful assistant' },
-          { role: 'user', content: `I want you to rewrite a text using the following tone:\n${tones[tone]}` },
+          { role: 'user', content: `I want you to rewrite a text using the following tone:\n${tones.tone}` },
           { role: 'assistant', content: 'Sure, please provide the content' },
           { role: 'user', content: 'You must not add anything that is not related to the original text. You must not remove relevant information the text.' },
           { role: 'user', content: `The title of the content is:\n${title}\nThe following is one of the sections. Provide a title for the section, and rewrite the following using the specified tone:\n${content}.` },
@@ -77,6 +79,7 @@ const retone = async (title, content, index, tone) => {
 };
 
 export const main = async (pageUrl, tone) => {
+  // eslint-disable-next-line no-unused-vars
   const [sections, resultHtml] = await fetchAndParseURL(pageUrl);
   const tokenLen = encode(String(sections)).length;
 

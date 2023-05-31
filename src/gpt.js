@@ -88,9 +88,11 @@ const summarize = async (title, content, index) => {
 const finalSum = async (content) => {
   let retries = 5; // try to request three times for each paragraph
   let success = false; // if success, turn success to true
+  console.log('hi3');
+  console.log(content);
   const len = await encode(content).length;
   let gptModel;
-
+  console.log('hi4');
   console.log('---------------');
   console.log(`Final length: ${len}`);
   console.log('---------------');
@@ -150,14 +152,20 @@ export const main = async (pageUrl) => {
     return summarize(title, section, index);
   });
   await Promise.all(resultPromises);
-  history = history.join('\n');
-  console.log(history);
+  if (history.length > 1) {
+    history = history.join('\n');
+  } else {
+    history = String(history);
+  }
 
+  console.log(history);
+  console.log('hi1');
   let waiting = true;
   let result;
   while (waiting) {
     if (history !== null) {
       summarizer.save();
+      console.log('hi2');
       result = await finalSum(history);
       waiting = false;
     }

@@ -12,6 +12,9 @@ let history = [];
 const tones = {
   lighthearted: 'lighthearted and cheerful',
   agressive: 'agressive and confrontational',
+  informal: 'informal and conversational',
+  formal: 'formal and professional',
+  humorous: 'humorous and playful',
 };
 
 // create new retoner model instance

@@ -9,6 +9,8 @@ const fetchAndParseURL = require('./parser');
 require('dotenv').config();
 
 let history = [];
+let tones = {lighthearted: 'lighthearted and cheerful',
+agressive: 'agressive and confrontational'}
 
 // create new retoner model instance
 const retoner = new RetoneModel();
@@ -25,7 +27,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 // make request to OpenAI api
-const retone = async (title, content, index) => {
+const retone = async (title, content, index, tone) => {
   let retries = 5; // try to request three times for each paragraph
   let success = false; // if success, turn success to true
 
@@ -36,10 +38,10 @@ const retone = async (title, content, index) => {
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system', content: 'You are a helpful assistant' },
-          { role: 'user', content: 'conclude the material while preserving as many particulars and information as feasible.' },
+          { role: 'user', content: `I want you to rewrite a text using the following tone:\n${tones[tone]}` },
           { role: 'assistant', content: 'Sure, please provide the content' },
-          { role: 'user', content: ` the title of the content is:\n${title}\nthe following is one of the paragraphs` },
-          { role: 'user', content: ` give me a title, and rewrite the following in a more lighthearted and cheerful manner.:\n${content}.` },
+          { role: 'user', content: 'You must not add anything that is not related to the original text. You must not remove relevant information the text.' },
+          { role: 'user', content: `The title of the content is:\n${title}\nThe following is one of the sections. Provide a title for the section, and rewrite the following using the specified tone:\n${content}.` },
         ],
       });
 
@@ -56,9 +58,6 @@ const retone = async (title, content, index) => {
       const titleStartIndex = resultTemp.indexOf(':') + 2; // Start after the colon and space
       const titleEndIndex = resultTemp.indexOf('\n', titleStartIndex);
       const sectionTitle = resultTemp.substring(titleStartIndex, titleEndIndex).trim();
-
-      const overviewIndex = resultTemp.indexOf('Overview:');
-      const sectionOverview = resultTemp.substring(overviewIndex).trim();
 
       retoner.sections.push({
         id: index + 1,
@@ -77,7 +76,7 @@ const retone = async (title, content, index) => {
   }
 };
 
-export const main = async (pageUrl) => {
+export const main = async (pageUrl, tone) => {
   const [sections, resultHtml] = await fetchAndParseURL(pageUrl);
   const tokenLen = encode(String(sections)).length;
 
@@ -94,7 +93,7 @@ export const main = async (pageUrl) => {
   retoner.save();
 
   const resultPromises = sections.slice(1).map((section, index) => {
-    return retone(title, section, index);
+    return retone(title, section, index, tone);
   });
   await Promise.all(resultPromises);
 

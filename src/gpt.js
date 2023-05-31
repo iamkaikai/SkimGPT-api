@@ -74,7 +74,7 @@ const summarize = async (title, content, index) => {
         overview: sectionOverview,
         content,
       });
-      summarizer.save();
+      // summarizer.save();
 
       success = true;
     } catch (error) {
@@ -150,10 +150,17 @@ export const main = async (pageUrl) => {
     return summarize(title, section, index);
   });
   await Promise.all(resultPromises);
-
   history = history.join('\n');
   console.log(history);
-  const result = await finalSum(history);
+
+  let waiting = true;
+  let result;
+  while (waiting) {
+    if (history !== null) {
+      result = await finalSum(history);
+      waiting = false;
+    }
+  }
 
   summarizer.general.overview = result;
 

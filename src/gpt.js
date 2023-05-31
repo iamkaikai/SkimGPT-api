@@ -79,14 +79,14 @@ const summarize = async (title, content, index) => {
       success = true;
     } catch (error) {
       console.log(`Request failed. Retrying (${retries - 1} attempts left)...`);
-      await new Promise((res) => { return setTimeout(res, 2000); }); // Wait 3s before retrying
+      await new Promise((res) => { return setTimeout(res, Math.ramdon() * 5000); }); // Wait 3s before retrying
       retries -= 1;
     }
   }
 };
 
 const finalSum = async (content) => {
-  let retries = 3; // try to request three times for each paragraph
+  let retries = 5; // try to request three times for each paragraph
   let success = false; // if success, turn success to true
   const len = await encode(content).length;
   let gptModel;
@@ -157,6 +157,7 @@ export const main = async (pageUrl) => {
   let result;
   while (waiting) {
     if (history !== null) {
+      summarizer.save();
       result = await finalSum(history);
       waiting = false;
     }

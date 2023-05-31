@@ -90,7 +90,6 @@ export const main = async (pageUrl) => {
   retoner.general.title = title;
   retoner.general.num_sections = numSections;
   retoner.general.url = pageUrl;
-  retoner.general.result_html = resultHtml;
 
   retoner.save();
 
@@ -101,8 +100,6 @@ export const main = async (pageUrl) => {
 
   history = history.join('\n');
   console.log(history);
-
-  retoner.general.overview = result;
 
   return retoner;
 };

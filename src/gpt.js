@@ -79,7 +79,7 @@ const summarize = async (title, content, index) => {
       success = true;
     } catch (error) {
       console.log(`Request failed. Retrying (${retries - 1} attempts left)...`);
-      await new Promise((res) => { return setTimeout(res, Math.ramdon() * 5000); }); // Wait 3s before retrying
+      await new Promise((res) => { return setTimeout(res, Math.random() * 5000); }); // Wait 5s before retrying
       retries -= 1;
     }
   }

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as Summarizer from './controllers/summarizer_controller';
+import * as Retone from './controllers/retone_controller';
 
 const router = Router();
 
@@ -36,8 +37,8 @@ router.route('/retones')
   .post(async (req, res) => {
     const initInfo = req.body;
     try {
-      Summarizer.createSummarizer(initInfo);
-      return res.json(`get ${initInfo.url}`);
+      Retone.createRetone(initInfo);
+      return res.json(`get ${initInfo.url} with tone ${initInfo.tone}`);
     } catch (error) {
       return res.status(403).json({ error });
     }
@@ -47,8 +48,10 @@ router.route('/retones')
     const encodedURL = initInfo.url;
     const decodedURL = decodeURIComponent(encodedURL);
     console.log(decodedURL);
+
+    const { tone } = initInfo;
     try {
-      const result = await Summarizer.getSummarizer(decodedURL);
+      const result = await Retone.getRetone(decodedURL, tone);
       return res.json(result);
     } catch (error) {
       return res.status(404).json({ error });

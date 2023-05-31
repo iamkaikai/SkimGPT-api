@@ -16,6 +16,7 @@ const SectionSchema = new Schema({
 const RetoneSchema = new Schema({
   general: {
     url: String,
+    tone: String,
     title: String,
     num_sections: Number,
   },

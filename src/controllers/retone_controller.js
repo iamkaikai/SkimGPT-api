@@ -1,16 +1,18 @@
 import RetoneModel from '../models/retone_model';
-import gptCall from '../gpt';
+import retoneCall from '../retone';
 
 export async function createRetone(initInfo) {
   try {
     console.log(initInfo.url);
+    console.log(initInfo.tone);
     const existingRet = await RetoneModel.findOne({
       'general.url': initInfo.url,
+      'general.tone': initInfo.tone,
     });
     if (existingRet) {
       return existingRet;
     }
-    const retone = await gptCall(initInfo.url); // CHANGE THIS TO NEW RETONE FUNCTION (needs to make clean html and then call gpt)
+    const retone = await retoneCall(initInfo.url, initInfo.tone);
     retone.save();
     return retone;
   } catch (error) {
@@ -18,10 +20,13 @@ export async function createRetone(initInfo) {
   }
 }
 
-export async function getRetone(url) {
+export async function getRetone(url, tone) {
   try {
     console.log('inside get retone');
-    const ret = await RetoneModel.findOne({ 'general.url': url }).exec();
+    const ret = await RetoneModel.findOne({
+      'general.url': url,
+      'general.tone': tone,
+    }).exec();
     return ret;
   } catch (error) {
     throw new Error(`get retone error: ${error}`);

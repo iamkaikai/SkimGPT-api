@@ -11,16 +11,35 @@ require('dotenv').config();
 const summarizer = new SummarizerModel();
 
 // simple multi-threading helper function for parellet saving in mongoDB
-let islocked = false;
-const threadSave = async (locked) => {
-  if (!locked) {
-    islocked = true;
-    await summarizer.save();
-    islocked = false;
+// let islocked = false;
+// const threadSave = async (locked) => {
+//   if (!locked) {
+//     islocked = true;
+//     await summarizer.save();
+//     islocked = false;
+//   } else {
+//     threadSave(islocked);
+//   }
+// };
+
+const saveQueue = [];
+
+async function threadSave(input) {
+  if (saveQueue.length === 0) {
+    await input.save();
   } else {
-    threadSave(islocked);
+    saveQueue.push(input);
   }
-};
+
+  processQueue();
+}
+
+async function processQueue() {
+  while (saveQueue.length > 0) {
+    const item = saveQueue.shift(); // Dequeue an item
+    await item.save();
+  }
+}
 
 // config OpenAI api
 const configuration = new Configuration({
@@ -94,7 +113,7 @@ const summarize = async (title, content, index) => {
     }
   }
   history.push(`${resultTemp}`); // push result to history
-  setTimeout(() => { threadSave(islocked); }, Math.random() * 1000); // push resultTemp to history when islocked is true
+  setTimeout(() => { threadSave(summarizer); }, Math.random() * 1000); // push resultTemp to history when islocked is true
 };
 
 const finalSum = async (content) => {

@@ -113,7 +113,7 @@ const summarize = async (title, content, index) => {
     }
   }
   history.push(`${resultTemp}`); // push result to history
-  setTimeout(() => { threadSave(summarizer); }, Math.random() * 1000); // push resultTemp to history when islocked is true
+  threadSave(summarizer);
 };
 
 const finalSum = async (content) => {
@@ -188,10 +188,6 @@ export const main = async (pageUrl) => {
     historyString = String(history);
   }
 
-  console.log('hi-b');
-  console.log(history.length);
-  console.log('--------');
-  console.log(historyString);
   let waiting = true;
   let result;
   while (waiting) {

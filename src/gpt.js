@@ -42,7 +42,7 @@ const principle = `   A good summary should be comprehensive, concise, coherent,
 `;
 
 // make request to OpenAI api
-let history = [];
+const history = [];
 const summarize = async (title, content, index) => {
   let retries = 8; // try to request three times for each paragraph
   let success = false; // if success, turn success to true
@@ -162,25 +162,23 @@ export const main = async (pageUrl) => {
   });
   await Promise.all(resultPromises);
 
+  let historyString;
   if (history.length > 1) {
-    console.log('hi-a');
-    console.log(history.length);
-    history = history.join('\n');
+    historyString = history.join('\n');
   } else {
-    history = String(history);
+    historyString = String(history);
   }
 
   console.log('hi-b');
   console.log(history.length);
   console.log('--------');
-  console.log(history);
+  console.log(historyString);
   let waiting = true;
   let result;
   while (waiting) {
-    if (history !== null) {
+    if (historyString !== null) {
       summarizer.save();
-      console.log('hi2');
-      result = await finalSum(history);
+      result = await finalSum(historyString);
       waiting = false;
     }
   }

@@ -48,12 +48,15 @@ const principle = `   A good summary should be comprehensive, concise, coherent,
                 A summary must be independent: You are not being asked to imitate the author of the text you are writing about. On the contrary, you are expected to maintain your own voice throughout the summary. Don't simply quote the author; instead use your own words to express your understanding of what you have read. After all, your summary is based on your interpretation of the writer's points or ideas. 
 `;
 
+const delay = (ms) => { return new Promise((res) => { return setTimeout(res, ms); }); };
+
 // make request to OpenAI api
 const history = [];
 const summarize = async (title, content, index) => {
   let retries = 8; // try to request three times for each paragraph
   let success = false; // if success, turn success to true
   let resultTemp;
+  await delay(Math.random() * 5000); // delay to avoid parellel saving
 
   // summary for each sections
   while (retries > 0 && success !== true) {
@@ -72,7 +75,7 @@ const summarize = async (title, content, index) => {
       success = true;
     } catch (error) {
       console.log(`Part ${index} Request failed. Retrying (${retries - 1} attempts left)...`);
-      await new Promise((res) => { return setTimeout(res, Math.random() * 8000); }); // Wait 5s before retrying
+      await new Promise((res) => { return setTimeout(res, Math.random() * 5000); }); // Wait 5s before retrying
       retries -= 1;
     }
     if (success) {
@@ -162,7 +165,7 @@ export const main = async (pageUrl) => {
   summarizer.general.num_sections = numSections;
   summarizer.general.url = pageUrl;
   summarizer.general.result_html = resultHtml;
-  summarizer.save();
+  await summarizer.save();
 
   const resultPromises = sections.slice(1).map((section, index) => {
     return summarize(title, section, index);
@@ -180,18 +183,12 @@ export const main = async (pageUrl) => {
   let result;
   while (waiting) {
     if (historyString !== null) {
-      try {
-        summarizer.save();
-      } catch (error) {
-        console.log(error);
-      }
       result = await finalSum(historyString);
+      summarizer.general.overview = result;
+      summarizer.save();
       waiting = false;
     }
   }
-
-  summarizer.general.overview = result;
-
   return summarizer;
 };
 

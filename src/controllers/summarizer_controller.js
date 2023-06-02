@@ -9,7 +9,6 @@ export async function createSummarizer(initInfo) {
       return existingSum;
     }
     const summarizer = await gptCall(initInfo.url);
-    summarizer.save();
     return summarizer;
   } catch (error) {
     throw new Error(`create summarizer error: ${error}`);

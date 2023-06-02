@@ -11,32 +11,16 @@ require('dotenv').config();
 const summarizer = new SummarizerModel();
 
 // simple multi-threading helper function for parellet saving in mongoDB
-// let islocked = false;
-// const threadSave = async (locked) => {
-//   if (!locked) {
-//     islocked = true;
-//     await summarizer.save();
-//     islocked = false;
-//   } else {
-//     threadSave(islocked);
-//   }
-// };
-
 const saveQueue = [];
 
 async function threadSave(input) {
-  if (saveQueue.length === 0) {
-    await input.save();
-  } else {
-    saveQueue.push(input);
-  }
-
+  saveQueue.push(input);
   processQueue();
 }
 
 async function processQueue() {
   while (saveQueue.length > 0) {
-    const item = saveQueue.shift(); // Dequeue an item
+    const item = await saveQueue.shift(); // Dequeue an item
     await item.save();
   }
 }

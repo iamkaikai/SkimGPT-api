@@ -180,7 +180,11 @@ export const main = async (pageUrl) => {
   let result;
   while (waiting) {
     if (historyString !== null) {
-      summarizer.save();
+      try {
+        summarizer.save();
+      } catch (error) {
+        console.log(error);
+      }
       result = await finalSum(historyString);
       waiting = false;
     }

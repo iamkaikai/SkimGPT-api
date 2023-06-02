@@ -12,7 +12,6 @@ const summarizer = new SummarizerModel();
 
 // simple multi-threading helper function for parellet saving in mongoDB
 const saveQueue = [];
-let isSaving = false;
 
 async function threadSave(input) {
   saveQueue.push(input);
@@ -20,22 +19,13 @@ async function threadSave(input) {
 }
 
 async function processQueue() {
-  if (isSaving) {
-    // If a save operation is already in progress, wait a bit and then try again
-    setTimeout(processQueue, 100);
-    return;
-  }
-
   if (saveQueue.length > 0) {
     const item = await saveQueue.shift(); // Dequeue an item
-    isSaving = true;
     try {
       await item.save();
     } catch (error) {
-      console.error(error);
-      saveQueue.push(item);
+      return null;
     }
-    isSaving = false;
   }
 }
 
@@ -82,7 +72,7 @@ const summarize = async (title, content, index) => {
       success = true;
     } catch (error) {
       console.log(`Part ${index} Request failed. Retrying (${retries - 1} attempts left)...`);
-      await new Promise((res) => { return setTimeout(res, Math.random() * 3000); }); // Wait 5s before retrying
+      await new Promise((res) => { return setTimeout(res, Math.random() * 8000); }); // Wait 5s before retrying
       retries -= 1;
     }
     if (success) {

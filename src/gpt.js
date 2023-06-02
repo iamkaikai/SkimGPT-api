@@ -12,6 +12,7 @@ const summarizer = new SummarizerModel();
 
 // simple multi-threading helper function for parellet saving in mongoDB
 const saveQueue = [];
+let isSaving = false;
 
 async function threadSave(input) {
   saveQueue.push(input);
@@ -19,9 +20,22 @@ async function threadSave(input) {
 }
 
 async function processQueue() {
-  while (saveQueue.length > 0) {
+  if (isSaving) {
+    // If a save operation is already in progress, wait a bit and then try again
+    setTimeout(processQueue, 100);
+    return;
+  }
+
+  if (saveQueue.length > 0) {
     const item = await saveQueue.shift(); // Dequeue an item
-    await item.save();
+    isSaving = true;
+    try {
+      await item.save();
+    } catch (error) {
+      console.error(error);
+      saveQueue.push(item);
+    }
+    isSaving = false;
   }
 }
 

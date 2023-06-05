@@ -1,6 +1,6 @@
 # SkimGPT API
 
-SkimGPT is a Chrome extension built to help the users efficiently digest online articles and blog posts. It uses GPT to generate summary of the webpage the user is currently on and displays it on the side.
+SkimGPT is a Chrome extension built to help users efficiently digest online articles and blog posts. It uses GPT to generate a summary of the webpage the user is currently on and displays it on the side.
 
 This repo stores our database for articles that have been summariezed, and the API that allows users to interact with the database, to query for articles, and to generate summaries of new articles. We also clean the text of the articles and produce a clean version of the article for readers to digest more easily.
 

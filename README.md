@@ -37,7 +37,8 @@ Tools and Libraries Used
 * React
 * Axios
 * APIs used
-    * OpenAI GPT-3 API
+    * OpenAI GPT-3.5-turbo API
+    * OpenAI GPT-4 API
     * Readability API
 * Database
     * MongoDB
